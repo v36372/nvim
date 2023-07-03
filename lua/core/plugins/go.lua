@@ -2,6 +2,7 @@ local M = {
   "ray-x/go.nvim",
   dependencies = {
     "ray-x/guihua.lua",
+    "buoto/gotests-vim"
   },
   ft = { "go", "gomod" },
   build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
@@ -11,7 +12,7 @@ local M = {
       -- NOTE: all LSP and formatting related options are disabeld.
       -- NOTE: is not related to core.plugins.lsp
       -- NOTE: manages LSP on its own
-      go = "go", -- go command, can be go[default] or go1.18beta1
+      go = "go", -- go, can be go[default] or go1.18beta1
       goimport = "gopls", -- goimport command, can be gopls[default] or goimport
       fillstruct = "gopls", -- can be nil (use fillstruct, slower) and gopls
       gofmt = "gofumpt", -- gofmt cmd,
@@ -44,28 +45,18 @@ local M = {
               r = { "<cmd>GoRMTag<cr>", "Remove tags to struct" },
               c = { "<cmd>GoCoverage<cr>", "Test coverage" },
               g = { "<cmd>lua require('go.comment').gen()<cr>", "Generate comment" },
-              v = { "<cmd>GoVet<cr>", "Go vet" },
-              t = { "<cmd>GoModTidy<cr>", "Go mod tidy" },
-              i = { "<cmd>GoModInit<cr>", "Go mod init" },
             },
-            i = { "<cmd>GoToggleInlay<cr>", "Toggle inlay" },
             l = { "<cmd>GoLint<cr>", "Run linter" },
             o = { "<cmd>GoPkgOutline<cr>", "Outline" },
-            r = { "<cmd>GoRun<cr>", "Run" },
             s = { "<cmd>GoFillStruct<cr>", "Autofill struct" },
             t = {
               name = "Tests",
               r = { "<cmd>GoTest<cr>", "Run tests" },
-              a = { "<cmd>GoAlt!<cr>", "Open alt file" },
+              a = { "<cmd>GoTests<cr>", "Generate tests" },
               s = { "<cmd>GoAltS!<cr>", "Open alt file in split" },
               v = { "<cmd>GoAltV!<cr>", "Open alt file in vertical split" },
               u = { "<cmd>GoTestFunc<cr>", "Run test for current func" },
               f = { "<cmd>GoTestFile<cr>", "Run test for current file" },
-            },
-            x = {
-              name = "Code Lens",
-              l = { "<cmd>GoCodeLenAct<cr>", "Toggle Lens" },
-              a = { "<cmd>GoCodeAction<cr>", "Code Action" },
             },
           },
         }, { prefix = "<leader>", mode = "n", default_options })

@@ -6,28 +6,6 @@ local env = snip_env
 
 return {
   env.s(
-    "fp",
-    env.fmt(
-      [[
-      fmt.Println({})
-      ]],
-      {
-        env.i(1, "text"),
-      }
-    )
-  ),
-  env.s(
-    "ffp",
-    env.fmt(
-      [[
-      fmt.Printf({})
-      ]],
-      {
-        env.i(1, "text"),
-      }
-    )
-  ),
-  env.s(
     "sf",
     env.fmt(
       [[
