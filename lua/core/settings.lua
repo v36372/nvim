@@ -32,23 +32,15 @@ M.disable_dashboard_quick_links = false
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {
   "bash",
-  "cmake",
-  "css",
   "dockerfile",
   "go",
   "hcl",
   "html",
-  "java",
-  "javascript",
   "json",
-  "kotlin",
-  "ledger",
   "lua",
   "markdown",
   "markdown_inline",
-  "query",
   "python",
-  "regex",
   "rust",
   "terraform",
   "toml",
@@ -66,7 +58,6 @@ M.lsp_servers = {
   "pyright",
   "lua_ls",
   "terraformls",
-  "texlab",
   "yamlls",
 }
 
