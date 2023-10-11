@@ -20,6 +20,7 @@ map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 -- Cancel search highlighting with ESC
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch and ESC" })
 
+map( "i", "jj" , "<esc>", { desc = "Clear hlsearch and ESC" })
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
   return require("core.utils.functions").escapePair()
@@ -27,7 +28,7 @@ end)
 
 -- save like your are used to
 map({ "i", "v", "n", "s" }, "<C-w>", "<cmd>w<cr><esc>", { desc = "Save file" })
-map({ "i", "v", "n", "s" }, "<C-q>", "<cmd>Bdelete<cr><esc>", { desc = "Save & quit" })
+map({ "i", "v", "n", "s" }, "<C-q>", "<cmd>x<cr><esc>", { desc = "Save & quit" })
 
 
 -- toggles
