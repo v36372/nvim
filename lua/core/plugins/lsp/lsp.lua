@@ -26,11 +26,16 @@ for _, lsp in ipairs(settings.lsp_servers) do
     settings = {
       json = lsp_settings.json,
       Lua = lsp_settings.lua,
-      ltex = lsp_settings.ltex,
-      redhat = { telemetry = { enabled = false } },
-      texlab = lsp_settings.tex,
       yaml = lsp_settings.yaml,
     },
+    solidity = {
+      default_config = {
+        cmd = {'nomicfoundation-solidity-language-server', '--stdio'},
+        filetypes = { 'solidity' },
+        root_dir = nvim_lsp.util.find_git_ancestor,
+        single_file_support = true,
+      },
+    }
   })
   ::continue::
 end
