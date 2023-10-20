@@ -10,6 +10,11 @@ nls.setup({
     }),
     nls.builtins.formatting.terraform_fmt,
     nls.builtins.formatting.black,
+    nls.builtins.formatting.goimports,
+    nls.builtins.formatting.gofumpt,
+    nls.builtins.code_actions.shellcheck,
+    nls.builtins.code_actions.gitsigns,
+    nls.builtins.formatting.shfmt,
   },
   on_attach = function(client, bufnr)
     vim.keymap.set(

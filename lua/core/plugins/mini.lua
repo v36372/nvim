@@ -28,71 +28,33 @@ return {
         update_n_lines = "sn", -- Update `n_lines`
       },
     },
-  },
-
-  {
-    "echasnovski/mini.jump",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      -- Module mappings. Use `''` (empty string) to disable one.
-      mappings = {
-        forward = "f",
-        backward = "F",
-        forward_till = "t",
-        backward_till = "T",
-        repeat_jump = ";",
-      },
-
-      -- Delay values (in ms) for different functionalities. Set any of them to
-      -- a very big number (like 10^7) to virtually disable.
-      delay = {
-        -- Delay between jump and highlighting all possible jumps
-        highlight = 250,
-
-        -- Delay between jump and automatic stop if idle (no jump is done)
-        idle_stop = 10000000,
-      },
-    },
-  },
-
-  {
-    "echasnovski/mini.jump2d",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      -- Function producing jump spots (byte indexed) for a particular line.
-      -- For more information see |MiniJump2d.start|.
-      -- If `nil` (default) - use |MiniJump2d.default_spotter|
-      spotter = nil,
-      -- Characters used for labels of jump spots (in supplied order)
-      labels = "abcdefghijklmnopqrstuvwxyz",
-      -- Which lines are used for computing spots
-      allowed_lines = {
-        blank = true, -- Blank line (not sent to spotter even if `true`)
-        cursor_before = true, -- Lines before cursor line
-        cursor_at = false, -- Cursor line
-        cursor_after = true, -- Lines after cursor line
-        fold = true, -- Start of fold (not sent to spotter even if `true`)
-      },
-      -- Which windows from current tabpage are used for visible lines
-      allowed_windows = {
-        current = true,
-        not_current = true,
-      },
-      -- Functions to be executed at certain events
-      hooks = {
-        before_start = nil, -- Before jump start
-        after_jump = nil, -- After jump was actually done
-      },
-      -- Module mappings. Use `''` (empty string) to disable one.
-      mappings = {
-        start_jumping = "",
-      },
-    },
+    config = function(_, opts)
+      vim.keymap.set(
+        "n",
+        "<leader><leader>s",
+        ":normal saiW`<Esc>",
+        { desc = "Surround inner word with backticks", noremap = true }
+      )
+      local wk = require("which-key")
+      wk.register({
+        sa = "Add surrounding",
+        sd = "Delete surrounding",
+        sh = "Highlight surrounding",
+        sn = "Surround update n lines",
+        sr = "Replace surrounding",
+        sF = "Find left surrounding",
+        sf = "Find right surrounding",
+        st = { "<cmd>lua require('tsht').nodes()<cr>", "TS hint textobject" },
+      })
+      require("mini.surround").setup(opts)
+    end,
   },
 
   {
     "echasnovski/mini.align",
     event = { "BufReadPre", "BufNewFile" },
+    -- is not loaded without explicitly saying it
+    config = true,
   },
 
   {
@@ -107,8 +69,13 @@ return {
       local hi = require("mini.hipatterns")
       return {
         highlighters = {
-          -- TODO: tailwind integration?
+          -- Highlight 'FIXME', 'HACK', 'TODO', 'NOTE'
+          fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+          hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+          todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+          note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
           hex_color = hi.gen_highlighter.hex_color(),
+          -- TODO: tailwind integration?
         },
       }
     end,
