@@ -2,7 +2,7 @@ local M = {}
 
 -- theme: nightfox, tokyonight, tundra, kanagawa, oxocarbon; default is catppuccin
 -- refer to the themes settings file for different styles
-M.theme = "catppuccin"
+M.theme = "oxocarbon"
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
@@ -20,7 +20,7 @@ M.list = false
 -- which list chars to schow
 M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
 -- Noice heavily changes the Neovim UI ...
-M.enable_noice = true
+M.enable_noice = false
 -- Number of recent files shown in dashboard
 -- 0 disables showing recent files
 M.dashboard_recent_files = 5
@@ -83,9 +83,10 @@ M.telescope_grep_hidden = true
 -- which patterns to ignore in file switcher
 M.telescope_file_ignore_patterns = {
   "%.7z",
+  "%.avi",
   "%.JPEG",
   "%.JPG",
-  "%.MOV",
+  "%.V",
   "%.RAF",
   "%.burp",
   "%.bz2",

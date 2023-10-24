@@ -4,10 +4,8 @@ local M = {
   event = { "BufReadPost", "BufNewFile" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "RRethy/nvim-treesitter-endwise",
     "mfussenegger/nvim-ts-hint-textobject",
     "windwp/nvim-ts-autotag",
-    "nvim-treesitter/playground",
   },
   config = function()
     local settings = require("core.settings")
@@ -27,9 +25,6 @@ local M = {
           node_incremental = "<TAB>",
           node_decremental = "<S-TAB>",
         },
-      },
-      endwise = {
-        enable = true,
       },
       indent = { enable = true },
       autopairs = { enable = true },

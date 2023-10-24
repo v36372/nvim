@@ -22,7 +22,7 @@ local M = {
         -- Override delete to use trash instead of rm
         delete = function(state)
           local path = state.tree:get_node().path
-          vim.fn.system({ "trash", vim.fn.fnameescape(path) })
+          vim.fn.system({ "rm", vim.fn.fnameescape(path) })
           require("neo-tree.sources.manager").refresh(state.name)
         end,
         system_open = function(state)
@@ -55,12 +55,12 @@ local M = {
             "toggle_node",
             nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
           },
-          ["<2-LeftMouse>"] = "open_with_window_picker",
-          ["<cr>"] = "open_with_window_picker",
+          -- ["<2-LeftMouse>"] = "open_with_window_picker",
+          -- ["<cr>"] = "open_with_window_picker",
           -- ["S"] = "open_split",
-          ["S"] = "split_with_window_picker",
+          -- ["S"] = "split_with_window_picker",
           -- ["s"] = "open_vsplit",
-          ["s"] = "vsplit_with_window_picker",
+          -- ["s"] = "vsplit_with_window_picker",
           ["t"] = "open_tabnew",
           --["P"] = "toggle_preview",
           ["C"] = "close_node",
