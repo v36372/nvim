@@ -1,0 +1,1501 @@
+diff --git a/after/ftplugin/go.lua b/after/ftplugin/go.lua
+index 0a26e76..5fc59dc 100644
+--- a/after/ftplugin/go.lua
++++ b/after/ftplugin/go.lua
+@@ -3,4 +3,3 @@ vo.tabstop = 4
+ vo.shiftwidth = 4
+ vo.softtabstop = 4
+ 
+-require("core.plugins.dap.dap").setup()
+diff --git a/lazy-lock.json b/lazy-lock.json
+index 0835cfa..d0026a7 100644
+--- a/lazy-lock.json
++++ b/lazy-lock.json
+@@ -1,24 +1,20 @@
+ {
+-  "ChatGPT.nvim": { "branch": "main", "commit": "ff458cbbd4333560eb9c5093c03f38de19470bc5" },
+   "LuaSnip": { "branch": "master", "commit": "f3b3d3446bcbfa62d638b1903ff00a78b2b730a1" },
+   "Navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
+   "alpha-nvim": { "branch": "main", "commit": "41283fb402713fc8b327e60907f74e46166f4cfd" },
+   "animation.nvim": { "branch": "main", "commit": "fb77091ab72ec9971aee0562e7081182527aaa6a" },
+   "bufdelete.nvim": { "branch": "master", "commit": "f6bcea78afb3060b198125256f897040538bcb81" },
+-  "catppuccin": { "branch": "main", "commit": "c0de3b46811fe1ce3912e2245a9dfbea6b41c300" },
+   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
+   "cmp-calc": { "branch": "main", "commit": "ce91d14d2e7a8b3f6ad86d85e34d41c1ae6268d9" },
+   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
+   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
+   "cmp-rg": { "branch": "master", "commit": "677a7874ee8f1afc648c2e7d63a97bc21a7663c5" },
+   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
+-  "copilot-cmp": { "branch": "master", "commit": "72fbaa03695779f8349be3ac54fa8bd77eed3ee3" },
+-  "copilot.lua": { "branch": "master", "commit": "03f825956ec49e550d07875d867ea6e7c4dc8c00" },
+   "dressing.nvim": { "branch": "master", "commit": "6f212262061a2120e42da0d1e87326e8a41c0478" },
+-  "dropbar.nvim": { "branch": "master", "commit": "a133a7deed7431496d8e87e8e4cc9c09a9d78945" },
+   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
+   "flatten.nvim": { "branch": "main", "commit": "92c59ae6200e6b04aff167577ebb8a9035a6d2b3" },
+   "friendly-snippets": { "branch": "main", "commit": "dcd4a586439a1c81357d5b9d26319ae218cc9479" },
++  "git-conflict.nvim": { "branch": "main", "commit": "4c8e252b87d54d944c1e56bfb477f78b6fdaf661" },
+   "gitsigns.nvim": { "branch": "main", "commit": "2c2463dbd82eddd7dbab881c3a62cfbfbe3c67ae" },
+   "gopher.nvim": { "branch": "main", "commit": "ac27f4b6794c872140fb205313d79ab166892fe9" },
+   "harpoon": { "branch": "harpoon2", "commit": "a38be6e0dd4c6db66997deab71fc4453ace97f9c" },
+@@ -26,8 +22,8 @@
+   "inc-rename.nvim": { "branch": "main", "commit": "6f9b5f9cb237e12935144cdc535322b8c93c1b25" },
+   "indent-blankline.nvim": { "branch": "master", "commit": "821a7acd88587d966f7e464b0b3031dfe7f5680c" },
+   "keymap-layer.nvim": { "branch": "master", "commit": "e46840f9f377766e856964a49d7f351de3188a38" },
++  "kustomize.nvim": { "branch": "main", "commit": "a820d381c350f259d0d8cc32ecc7646a4ac8c5e8" },
+   "lazy.nvim": { "branch": "main", "commit": "aedcd79811d491b60d0a6577a9c1701063c2a609" },
+-  "lf.nvim": { "branch": "master", "commit": "69ab1efcffee6928bf68ac9bd0c016464d9b2c8b" },
+   "lspkind-nvim": { "branch": "master", "commit": "1735dd5a5054c1fb7feaf8e8658dbab925f4f0cf" },
+   "lualine.nvim": { "branch": "master", "commit": "7d131a8d3ba5016229e8a1d08bf8782acea98852" },
+   "mason-lspconfig.nvim": { "branch": "main", "commit": "21d33d69a81f6351e5a5f49078b2e4f0075c8e73" },
+@@ -40,54 +36,39 @@
+   "mini.surround": { "branch": "main", "commit": "a1b590cc3b676512de507328d6bbab5e43794720" },
+   "mini.test": { "branch": "main", "commit": "faa57f32120645092346f4fa89e75c01c9e84e3d" },
+   "neo-tree.nvim": { "branch": "v3.x", "commit": "f3941c57ec85d7bdb44fa53fd858fd80f159018f" },
+-  "neoconf.nvim": { "branch": "main", "commit": "faab415b0ba57f0a15a82210f346f662e6551e1a" },
++  "neoconf.nvim": { "branch": "main", "commit": "98980b5300e7a5e7f93e8dbf81c98cc3daa55df7" },
+   "neodev.nvim": { "branch": "main", "commit": "3157f2e876fd6223d36cfa76bee4709247d62fa5" },
+-  "neogit": { "branch": "master", "commit": "0d0879b0045fb213c328126969a3317c0963d34a" },
+-  "nerdy.nvim": { "branch": "main", "commit": "7c9a4ea4a9ca7063e86dbcf7ce0f233cb59bdc10" },
++  "nightfox.nvim": { "branch": "main", "commit": "a408e6bb101066952b81de9c11be367114bd561f" },
+   "noice.nvim": { "branch": "main", "commit": "bf67d70bd7265d075191e7812d8eb42b9791f737" },
+-  "none-ls.nvim": { "branch": "main", "commit": "4715e3e0480152dbbca1a3b5d09f070508a54691" },
++  "none-ls.nvim": { "branch": "main", "commit": "b4bd764cd1705086de4bd89f7ccf9d9ed0401259" },
+   "nui.nvim": { "branch": "main", "commit": "c3c7fd618dcb5a89e443a2e1033e7d11fdb0596b" },
+   "nvim-autopairs": { "branch": "master", "commit": "c6139ca0d5ad7af129ea6c89cb4c56093f2c034a" },
+   "nvim-bqf": { "branch": "main", "commit": "654c904d5ad9dc4846445056086168e25bd8ba2d" },
+   "nvim-cmp": { "branch": "main", "commit": "04e0ca376d6abdbfc8b52180f8ea236cbfddf782" },
+-  "nvim-dap": { "branch": "master", "commit": "fc880e82059eb21c0fa896be60146e5f17680648" },
+-  "nvim-dap-go": { "branch": "main", "commit": "64f73400761e2d19459e664a52ea478f3a4420e7" },
+-  "nvim-dap-python": { "branch": "master", "commit": "66560f0ebddf96604f7037e1efad3ba6942761e6" },
+-  "nvim-dap-ui": { "branch": "master", "commit": "9720eb5fa2f41988e8770f973cd11b76dd568a5d" },
+-  "nvim-dap-virtual-text": { "branch": "master", "commit": "d4542ac257d3c7ee4131350db6179ae6340ce40b" },
+-  "nvim-lspconfig": { "branch": "master", "commit": "ec7d51a619049c7c597f469f81ea199db6794651" },
++  "nvim-lspconfig": { "branch": "master", "commit": "b1a11b042d015df5b8f7f33aa026e501b639c649" },
+   "nvim-luapad": { "branch": "master", "commit": "a5b3d6aa1fe5fe75e6124927392a9d3a60a0ecce" },
+   "nvim-notify": { "branch": "master", "commit": "5371f4bfc1f6d3adf4fe9d62cd3a9d44356bfd15" },
+   "nvim-spectre": { "branch": "master", "commit": "3712ff0cdf4f9f877d9ca708d835a877d9a0abaf" },
+   "nvim-toggleterm.lua": { "branch": "main", "commit": "193786e0371e3286d3bc9aa0079da1cd41beaa62" },
+-  "nvim-treesitter": { "branch": "master", "commit": "18aa5ae3fd7245137bc41b5348102fe254405509" },
++  "nvim-treesitter": { "branch": "master", "commit": "31d06480554789557d24f1c2b7eacf627e43510c" },
+   "nvim-treesitter-endwise": { "branch": "master", "commit": "60e8c288e011403f248b5f6478dde12bed8a6c55" },
+-  "nvim-treesitter-textobjects": { "branch": "master", "commit": "7f00d94543f1fd37cab2afa2e9a6cd54e1c6b9ef" },
++  "nvim-treesitter-textobjects": { "branch": "master", "commit": "95933e762e28f9d38b572d65e7e4da9d2f4d90cb" },
+   "nvim-ts-autotag": { "branch": "main", "commit": "531f48334c422222aebc888fd36e7d109cb354cd" },
+   "nvim-ts-hint-textobject": { "branch": "master", "commit": "5a28bff46c05d28bdb4bcaef67e046eb915a9390" },
+   "nvim-web-devicons": { "branch": "master", "commit": "0bb67ef952ea3eb7b1bac9c011281471d99a27bc" },
+-  "nvim-window-picker": { "branch": "main", "commit": "41cfaa428577c53552200a404ae9b3a0b5719706" },
+   "outline.nvim": { "branch": "main", "commit": "a8d40aecb799196303ff3521c0e31c87bba57198" },
+-  "overseer.nvim": { "branch": "master", "commit": "4855aefcf335bbac71eea9c6a888958fb1ed1e1a" },
+-  "pkl-neovim": { "branch": "main", "commit": "f08e1da038d7dcb4a44aa8cdf50a7278ad3bded1" },
+   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
+   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
+   "starlite-nvim": { "branch": "main", "commit": "bc204069859e4e85a057b92ac61700f3f46c3e41" },
+-  "symbol-usage.nvim": { "branch": "main", "commit": "221afdf59bbd31d1fd2bb92a29cb954464c79e93" },
+   "telescope-file-browser.nvim": { "branch": "master", "commit": "48ffb8de688a22942940f50411d5928631368848" },
+-  "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
+   "telescope-heading.nvim": { "branch": "main", "commit": "23ce2c9ef252aecbaa37300c1209b5ef2b51e6c5" },
+   "telescope-symbols.nvim": { "branch": "master", "commit": "a6d0127a53d39b9fc2af75bd169d288166118aec" },
+   "telescope-zoxide": { "branch": "main", "commit": "68966349aa1b8e9ade403e18479ecf79447389a7" },
+-  "telescope.nvim": { "branch": "master", "commit": "2e1e382df42467029b493c143c2e727028140214" },
++  "telescope.nvim": { "branch": "master", "commit": "d5c4d9856320a07d04607c9b3a0523bd3f373328" },
+   "treesj": { "branch": "main", "commit": "60e27280030f9cd8dfb6ceb335922c6ff76682cc" },
+-  "trouble.nvim": { "branch": "main", "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea" },
+   "ts-advanced-git-search.nvim": { "branch": "main", "commit": "98c87741278345edd15914862ef3886c9b055f6f" },
+-  "twilight.nvim": { "branch": "main", "commit": "8b7b50c0cb2dc781b2f4262a5ddd57571556d1e4" },
+-  "typst.vim": { "branch": "main", "commit": "1a101a1e2ecde246f66d30b373d1db02a1a6f632" },
++  "typst.vim": { "branch": "main", "commit": "ff57d27cf5ee7427941a63fb537714f9a80e0246" },
+   "vim-fugitive": { "branch": "master", "commit": "2e88f14a585c014691904ba8fe39e6ea851c9422" },
+-  "vimtex": { "branch": "master", "commit": "afac40289eed684ab1301390dcd246b1609f8119" },
+   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
+-  "windows.nvim": { "branch": "main", "commit": "c7492552b23d0ab30325e90b56066ec51242adc8" },
+-  "zen-mode.nvim": { "branch": "main", "commit": "78557d972b4bfbb7488e17b5703d25164ae64e6a" }
++  "windows.nvim": { "branch": "main", "commit": "c7492552b23d0ab30325e90b56066ec51242adc8" }
+ }
+\ No newline at end of file
+diff --git a/lua/config/autocmds.lua b/lua/config/autocmds.lua
+index e6e0102..ec5f9b0 100644
+--- a/lua/config/autocmds.lua
++++ b/lua/config/autocmds.lua
+@@ -78,16 +78,16 @@ api.nvim_create_autocmd("TextYankPost", {
+   desc = "highlight on yank",
+ })
+ 
+-api.nvim_create_autocmd("BufReadPost", {
+-  callback = function()
+-    local mark = vim.api.nvim_buf_get_mark(0, '"')
+-    local lcount = vim.api.nvim_buf_line_count(0)
+-    if mark[1] > 0 and mark[1] <= lcount then
+-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+-    end
+-  end,
+-  desc = "go to last loc when opening a buffer",
+-})
++-- api.nvim_create_autocmd("BufReadPost", {
++--   callback = function()
++--     local mark = vim.api.nvim_buf_get_mark(0, '"')
++--     local lcount = vim.api.nvim_buf_line_count(0)
++--     if mark[1] > 0 and mark[1] <= lcount then
++--       pcall(vim.api.nvim_win_set_cursor, 0, mark)
++--     end
++--   end,
++--   desc = "go to last loc when opening a buffer",
++-- })
+ 
+ api.nvim_create_autocmd("FileType", {
+   pattern = {
+diff --git a/lua/config/defaults.lua b/lua/config/defaults.lua
+index 5d512e9..8385c0b 100644
+--- a/lua/config/defaults.lua
++++ b/lua/config/defaults.lua
+@@ -73,11 +73,11 @@ return {
+     alpha = {
+       -- Number of recent files shown in dashboard
+       -- 0 disables showing recent files
+-      dashboard_recent_files = 5,
++      dashboard_recent_files = 10,
+       -- disable the header of the dashboard
+-      disable_dashboard_header = false,
++      disable_dashboard_header = true,
+       -- disable quick links of the dashboard
+-      disable_dashboard_quick_links = false,
++      disable_dashboard_quick_links = true,
+     },
+     -- https://github.com/jackMort/ChatGPT.nvim
+     chatgpt = {
+@@ -89,10 +89,10 @@ return {
+       enable = false,
+       disable_autostart = false,
+     },
+-    emoji = {
+-      enable = false,
+-      enable_cmp_integration = false,
+-    },
++    -- emoji = {
++    --   enable = false,
++    --   enable_cmp_integration = false,
++    -- },
+     lsp = {
+       log = "off",
+     },
+@@ -103,11 +103,11 @@ return {
+     },
+     gopher = {
+       -- https://github.com/olexsmir/gopher.nvim
+-      enable = false,
++      enable = true,
+     },
+     harpoon = {
+       -- https://github.com/ThePrimeagen/harpoon
+-      enable = false,
++      enable = true,
+       key_mappings = function(harpoon)
+         vim.keymap.set("n", "<leader>a", function()
+           harpoon:list():append()
+@@ -130,7 +130,7 @@ return {
+       end,
+     },
+     indent_blankline = {
+-      enable = false,
++      enable = true,
+       enable_scope = true,
+     },
+     -- https://github.com/Allaman/kustomize.nvim
+@@ -171,34 +171,34 @@ return {
+       -- https://github.com/nvim-lualine/lualine.nvim#extensions
+       extensions = { "lazy" },
+     },
+-    ltex = {
+-      additional_lang = "de-DE", -- manually set a language in ltex-ls
+-    },
++    -- ltex = {
++    --   additional_lang = "de-DE", -- manually set a language in ltex-ls
++    -- },
+     noice = {
+       enable = true, -- Noice heavily changes the Neovim UI ...
+     },
+-    oil = {
+-      --- https://github.com/stevearc/oil.nvim
+-      enable = false,
+-      key_mappings = function()
+-        vim.keymap.set("n", "_", "<cmd>Oil<cr>", { desc = "Open oil" })
+-      end,
+-    },
+-    overseer = {
+-      -- https://github.com/stevearc/overseer.nvim
+-      enable = false,
+-    },
++    -- oil = {
++    --   --- https://github.com/stevearc/oil.nvim
++    --   enable = false,
++    --   key_mappings = function()
++    --     vim.keymap.set("n", "_", "<cmd>Oil<cr>", { desc = "Open oil" })
++    --   end,
++    -- },
++    -- overseer = {
++    --   -- https://github.com/stevearc/overseer.nvim
++    --   enable = false,
++    -- },
+     spectre = {
+       -- enable advanced search and replace
+       -- https://github.com/nvim-pack/nvim-spectre
+       enable = true,
+     },
+-    symbol_usage = {
+-      enable = true,
+-      opts = {
+-        vt_position = "above", -- 'above'|'end_of_line'|'textwidth'
+-      },
+-    },
++    -- symbol_usage = {
++    --   enable = true,
++    --   opts = {
++    --     vt_position = "above", -- 'above'|'end_of_line'|'textwidth'
++    --   },
++    -- },
+     telescope = {
+       -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
+       -- requires cmake and gcc toolchain
+@@ -262,10 +262,10 @@ return {
+       -- enable greping in hidden files
+       grep_hidden = true,
+     },
+-    tex = {
+-      vimtex_compiler_method = "tectonic", -- Tool to compile LaTex files
+-      vimtex_view_method = "skim", -- Tool to view PDFs generated from LaTex
+-    },
++    -- tex = {
++    --   vimtex_compiler_method = "tectonic", -- Tool to compile LaTex files
++    --   vimtex_view_method = "skim", -- Tool to view PDFs generated from LaTex
++    -- },
+     trouble = {
+       enable = false,
+       opts = {},
+@@ -278,14 +278,14 @@ return {
+ 
+   theme = {
+     -- catppuccin, nightfox, tokyonight, tundra, kanagawa
+-    name = "catppuccin",
++    name = "nightfox",
+     catppuccin = {
+       -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+       variant = "catppuccin-macchiato",
+     },
+     kanagawa = {
+       -- kanagawa-dragon, kanagawa-lotus, kanagawa-wave
+-      variant = "kanagawa-wave",
++      variant = "kanagawa-dragon",
+     },
+     nightfox = {
+       -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
+@@ -330,15 +330,15 @@ return {
+     "dockerls",
+     "jsonls",
+     "gopls",
+-    "ltex",
++    -- "ltex",
+     "marksman",
+     "pyright",
+-    "lua_ls",
++    -- "lua_ls",
+     "terraformls",
+-    "texlab",
+-    "tsserver",
+-    "typst_lsp",
+-    "yamlls",
++    -- "texlab",
++    -- "tsserver",
++    -- "typst_lsp",
++    -- "yamlls",
+   },
+ 
+   -- Tools that should be installed by Mason
+@@ -355,8 +355,8 @@ return {
+     "yamllint",
+     "ruff",
+     -- DAP
+-    "debugpy",
+-    "codelldb",
++    -- "debugpy",
++    -- "codelldb",
+     -- Go
+     "gofumpt",
+     "goimports",
+diff --git a/lua/config/mappings.lua b/lua/config/mappings.lua
+index 2e9caca..3b11cb5 100644
+--- a/lua/config/mappings.lua
++++ b/lua/config/mappings.lua
+@@ -29,7 +29,9 @@ map("i", "<C-l>", function()
+ end)
+ 
+ -- save like your are used to
+-map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
++map({ "i", "v", "n", "s" }, "<C-w>", "<cmd>w<cr><esc>", { desc = "Save file" })
++map({ "i", "v", "n", "s" }, "<C-q>", "<cmd>x<cr><esc>", { desc = "Save & quit" })
++
+ 
+ -- new file
+ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New file" })
+diff --git a/lua/core/health.lua b/lua/core/health.lua
+index 3d10c65..729fada 100644
+--- a/lua/core/health.lua
++++ b/lua/core/health.lua
+@@ -2,7 +2,7 @@ local M = {}
+ 
+ local utils = require("utils.functions")
+ local plugins = vim.g.config.plugins
+-local tex = vim.g.config.plugins.tex
++-- local tex = vim.g.config.plugins.tex
+ 
+ local health = vim.health
+ local _ok = health.ok
+@@ -79,17 +79,17 @@ M.check = function()
+     end
+   end
+ 
+-  if not utils.isExecutableAvailable(tex.vimtex_compiler_method) then
+-    _warn(string.format(exec_not_found_template, tex.vimtex_compiler_method, "to compile LaTex files"))
+-  else
+-    _ok(string.format(exec_found_template, tex.vimtex_compiler_method))
+-  end
++  -- if not utils.isExecutableAvailable(tex.vimtex_compiler_method) then
++  --   _warn(string.format(exec_not_found_template, tex.vimtex_compiler_method, "to compile LaTex files"))
++  -- else
++  --   _ok(string.format(exec_found_template, tex.vimtex_compiler_method))
++  -- end
+ 
+-  if not utils.isExecutableAvailable(tex.vimtex_view_method) then
+-    _warn(string.format(exec_not_found_template, tex.vimtex_view_method, "to view compiled LaTex files (PDFs)"))
+-  else
+-    _ok(string.format(exec_found_template, tex.vimtex_view_method))
+-  end
++  -- if not utils.isExecutableAvailable(tex.vimtex_view_method) then
++  --   _warn(string.format(exec_not_found_template, tex.vimtex_view_method, "to view compiled LaTex files (PDFs)"))
++  -- else
++  --   _ok(string.format(exec_found_template, tex.vimtex_view_method))
++  -- end
+ 
+   if not utils.isExecutableAvailable("python") then
+     if not utils.isExecutableAvailable("python3") then
+diff --git a/lua/core/plugins/alpha/headers.lua b/lua/core/plugins/alpha/headers.lua
+index d35edf6..9b7b0f4 100644
+--- a/lua/core/plugins/alpha/headers.lua
++++ b/lua/core/plugins/alpha/headers.lua
+@@ -21,476 +21,6 @@ local headers = {
+       [[             **             *              **             ]],
+       [[                                                          ]],
+     },
+-    ["bat_99"] = {
+-      [[                                                              ]],
+-      [[ .                                                          . ]],
+-      [[  ~7!^.                                                .^!7~  ]],
+-      [[   ~P&&G5J!^:.                                  .:^!J5G&&P~   ]],
+-      [[     ~G@@@@@&BPY7~.                        .~7YPB&@@@@@G~     ]],
+-      [[      .?&@@@@@@@@@?                        ?@@@@@@@@@&?.      ]],
+-      [[        ^B@@@@@@@@@7       ^:    :^       7@@@@@@@@@B^        ]],
+-      [[         .G@@@@@@@@@J      7B~  ~B7      J@@@@@@@@@G.         ]],
+-      [[          .B@@@@@@@@@P:    J@@BB@@?    ^P@@@@@@@@@B.          ]],
+-      [[           ^@@@@@@@@@@&J: .B@@@@@@B. :J&@@@@@@@@@@^           ]],
+-      [[            ?PB#@@@@@@@@&PB@@@@@@@@BP&@@@@@@@@#BP?            ]],
+-      [[               :^7YB@@@@@@@@@@@@@@@@@@@@@&BY7^:               ]],
+-      [[                    ^?G@@@@@@@@@@@@@@@@G?^                    ]],
+-      [[                       ^J#@@@@@@@@@@#J^                       ]],
+-      [[                         :J&@@@@@@&J:                         ]],
+-      [[                           :5@@@@5:                           ]],
+-      [[                             7&&7                             ]],
+-      [[                              !!                              ]],
+-      [[                                                              ]],
+-    },
+-    ["bat_03"] = {
+-      [[                                                            ]],
+-      [[           :~?5Y~                          ~Y5?~:           ]],
+-      [[        ^?G&@@&.           ~:  :~           .&@@&G?^        ]],
+-      [[     .?G@@@@@@@J           GG::GG           J@@@@@@@G?.     ]],
+-      [[   .J&@@@@@@@@@@#Y!^.     :&@&&@&:     .^!Y#@@@@@@@@@@&J.   ]],
+-      [[  ^B@@@@@@@@@@@@@@@@&#BGGPB@@@@@@BPGGB#&@@@@@@@@@@@@@@@@B^  ]],
+-      [[ ^@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@^ ]],
+-      [[ ?5J?7777?YPB@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@BPY?7777?J5? ]],
+-      [[             ^P@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@P^             ]],
+-      [[              .GY7~^~!?5B@@@@@@@@@@B5?!~^~7YG.              ]],
+-      [[                         ^J#@@@@#J^                         ]],
+-      [[                           .J&&J.                           ]],
+-      [[                             !!                             ]],
+-      [[                                                            ]],
+-    },
+-    ["bat_05"] = {
+-      [[                                                                          ]],
+-      [[ @@@@@@@@@@@@@@@@@@@@@\                            /@@@@@@@@@@@@@@@@@@@@@ ]],
+-      [[  \@@@@@@@@@@@@@@@@@@@@\          /\  /\          /@@@@@@@@@@@@@@@@@@@@/  ]],
+-      [[    \@@@@@@@@@@@@@@@@@@@\        /@@@@@@\        /@@@@@@@@@@@@@@@@@@@/    ]],
+-      [[     \@@@@@@@@@@@@@@@@@@@\______/@@@@@@@@\______/@@@@@@@@@@@@@@@@@@@/     ]],
+-      [[      \@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/      ]],
+-      [[      |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|      ]],
+-      [[      |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@|      ]],
+-      [[     _/@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\_     ]],
+-      [[     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@     ]],
+-      [[                    \@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@/                    ]],
+-      [[                           \@@@@@@@@@@@@@@@@@@/                           ]],
+-      [[                               \@@@@@@@@@@/                               ]],
+-      [[                                 \@@@@@@/                                 ]],
+-      [[                                  \@@@@/                                  ]],
+-      [[                                   \@@/                                   ]],
+-      [[                                                                          ]],
+-    },
+-    ["DooM"] = {
+-      [[                                                                                ]],
+-      [[ =================     ===============     ===============   ========  ======== ]],
+-      [[ \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . // ]],
+-      [[ ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .|| ]],
+-      [[ || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . || ]],
+-      [[ ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .|| ]],
+-      [[ || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . || ]],
+-      [[ ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .|| ]],
+-      [[ || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . || ]],
+-      [[ ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.|| ]],
+-      [[ ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `|| ]],
+-      [[ ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   || ]],
+-      [[ ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   || ]],
+-      [[ ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   || ]],
+-      [[ ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   || ]],
+-      [[ ||   .=='    _-'          `-__\._-'         `-_./__-'         `' |. /|  |   || ]],
+-      [[ ||.=='    _-'                                                     `' |  /==.|| ]],
+-      [[ =='    _-'                                                            \/   `== ]],
+-      [[ \   _-'                                                                `-_   / ]],
+-      [[  `''                                                                      ``'  ]],
+-      [[                                                                                ]],
+-    },
+-    ["MF_DooM_rip"] = {
+-      [[                                                                                  ]],
+-      [[   .-''-.                      .--.  .-. .--------.                      .-''-.   ]],
+-      [[  /      `'''--..              ||  \/  ||'=====. ||              ..--'''`      \  ]],
+-      [[ |               '.            || .  . ||  .---' ||            .'               | ]],
+-      [[ |           ..''` '---.       || |\/|_||  '===. ||       .---' `''..           | ]],
+-      [[ |        .``           ''''\  ||_|\/|.'       |_||  /''''           ``.        | ]],
+-      [[ /'..   /`              /    /'|_.'            '._|'\    \              `\   ..'\ ]],
+-      [[ |   `:'         ___..  \   /  /                  \  \   /  ..___         ':`   | ]],
+-      [[ '____'__...---'':::::\  '-' ./                    \. '-'  \:::::''---...__'____' ]],
+-      [[   \::/\ \:::::::::::':  ___/                        \___  :':::::::::::/ /\::/   ]],
+-      [[    \'| \ '-:::--'`  .' /              Rest              \ '.  `'--:::-' / |'/    ]],
+-      [[    /'|  \    ....''`__/                in                \__`''....    /  |'\    ]],
+-      [[    \ |   .   |  .-'`   .------. .------..------. .-. .--.   `'-.  |   .   | /    ]],
+-      [[     \/::.'   |  |      ||  _   V   _   ||   _   V  \/  ||      |  |   '.::\/     ]],
+-      [[     \':'_.---|  |      || | |  |  | |  ||  | |  | .  . ||      |  |---._':'/     ]],
+-      [[      \\      |  |      || | |  |   '|  ||  |'   | |\/| ||      |  |      //      ]],
+-      [[      \\      |  |      || |' .'|'.   .'||'.   .'|'|\/| ||      |  |      //      ]],
+-      [[       \\      | |      ||  .'.' '.'.'.'  '.'.'.' '|  | ||      | |      //       ]],
+-      [[       \\      | |      ||.'.'     '.'      '.'       |.||      | |      //       ]],
+-      [[        \\     |'       |_.'                          '._|       '|     //        ]],
+-      [[                                                                                  ]],
+-    },
+-    ["MF_DooM_graffiti"] = {
+-      [[                                                                          ]],
+-      [[                   ░░░  ▄▄▄▄▄▄███▄▄▄▄▄                                    ]],
+-      [[                    ▄███████▀▀▀▀▀▀█▓▓▓▓▓▓██▄▄▄▄                           ]],
+-      [[                   ▐████▄▄    ■▓▓▓▓▀▀▀▀▀▀▀▀▀█████■                ██▄     ]],
+-      [[                    ▀█████████▄▄▄▄▄███████████▀▀             ▄▄  ████░▄▄▄ ]],
+-      [[    ▐██▄            ▄▄▄▄▄▄▀▀▀▀▀▀▀▀▓▓▓▀░░░▄▄▄   ▄▄          ▐███▏▐██▓▄████ ]],
+-      [[ ▄█▓░███▓ ▄▓▓▓▄▄████████████▄█████▄ ▄█████████▐███         ████▏██▀████▀  ]],
+-      [[ ▐███▄███░▀████████▀▀   ▀▓█████▓▀██▓████▀▀  ███████      ▄█████ ■ ██▀     ]],
+-      [[  ▀████▓██ ▐██████       ▐████   ▐████▀    ▒████████▄  ▄███████           ]],
+-      [[    ▀███    ▀▀█████▄    ▄████   ▄████▏    ▄█████▀█████████▀ ███           ]],
+-      [[               ▀████▄ ▄████▐██▄███████▄▄▄███▓██▏ ▀██████▀   ▐██           ]],
+-      [[                ▀████████▀  ▀████▀▀████████▀▐██▏  ▀██▀▀     ▐██▏          ]],
+-      [[          ▓▓█    ▀████ ▀            ■███▄▄  ███              ██▏          ]],
+-      [[          ▀▀▀      ▀▀                ▀█████▄▓▀               ██▏          ]],
+-      [[            ░░     ▄████████████▄▄▄▄▄▄▄ ▀▀▀████▄▄   ▒▒▒      ██▏  ▄▄      ]],
+-      [[                   ▀▀████▀▀▀▀▀▀████████████▄▄▓▓▓███▄    ░░░░ ▐█▏ ■▀▀      ]],
+-      [[                                      ▀▀▀▀▀▀█████▓▓▓▓█▄▄     ▐█           ]],
+-      [[                                                ▄█████████▄▄              ]],
+-      [[                                       ▄▄▄▄████████▀▀▀▀▀▀▀███▏            ]],
+-      [[                                   ▄▄█████▀▀▀▀              ▀■            ]],
+-      [[                                ▄███▀▀▀▀                                  ]],
+-      [[                              ■▀▀                                         ]],
+-      [[                                                                          ]],
+-    },
+-    ["winged_hourglass"] = {
+-      [[                                                                                                  ]],
+-      [[      ^^                                                                                  :^      ]],
+-      [[ .^   :P7^...                                                                         ..:75.   :. ]],
+-      [[ .?~.. ~Y~:.:^..                                                                   .^...^Y~ ..^?. ]],
+-      [[   ~7:..^~:...!Y!...                           :??:                            ..!Y!. .:~^..:!^   ]],
+-      [[    ^7~:. .:::.^^::J~.                      .??5YJY??.                      .^?:.^^..:.   .~7^    ]],
+-      [[ .:..:JPJ^. .:^^~^:77!^:.              ^!7!~~!~~~!7?Y!~!!~^              .:^!77:^~^^..  :?P?:..:. ]],
+-      [[ .:^....^~^::..:7J^^7:.:~~.           ?GYYJ^..    ..:.~JYYG?           .~~:.:7^^J7...::^~^.  .^:  ]],
+-      [[   .:^^^:....:~^^7~..::..^^^.         J?YG7PJ?!:::~!!7P7GY??         :^^^..::..~7^^^:....:^^::.   ]],
+-      [[   ^^::^^:^~^:.^~^^~:...:~7!!^        !G~Y!P?^:     .^?~Y!P!        ^!~7~:...^~:^~^.:^^::^:.:^:   ]],
+-      [[    ..^~~^:.:^~!~~^~~:.:~~~?PP~       :7^#P^^ ^.....^!~P#~7:       ~PP?!~~^.:~~^~~!~^:.:^~~^..    ]],
+-      [[       .^!7!~~~^:~??!!^:::::~YP!.     .?7BP7P7!~!~^^~JYBB7?.     .!PY~:::::^!!??~:^~~~!7!^.       ]],
+-      [[       ^:... ..^!~^~^~^^7!::::^7?7~:: !5:YGGY7::.:^^.~55Y^5!.::~7?7^::::!!^^~^^^~~^..  ..:^       ]],
+-      [[        .:^!?!^::.....^~~~^~7:. ..^77^YY.? ~7!. .   ^?! ?.YY^77^.. .:7~~~~~^.:...:::~7!^..        ]],
+-      [[      .^~~^.. .^~:^~...::.^7~.::~7..::?YY?   :7~~.!7:   ?YY?::..7!::.~7:.::...^^:~^.  .^^~^.      ]],
+-      [[      ..^~^::.:J7:. .^?7:...^7~^7:::~:5YG5    :G~~5:    5GY5:!:::7^~7:....7?^.  .7J:..:^~:.       ]],
+-      [[              :!.:^~5#7  ..!5^ :~^ ::!?5??  .~J:.::?^.  Y?5?~^:.^~: :Y~..  7#5!^:.!:              ]],
+-      [[                ...~J. :7^^Y..^7P..!J:5Y.?:J?~. :. .^!7:J.YP:J!..P7^..Y^^7: .J~...                ]],
+-      [[                   7^:::. ^~::..!::.:.~Y~PG!.^  .. ...^JP~Y~.:.::!. .:~^ .:::^7                   ]],
+-      [[                                      .77#? 7::~^:^.. .^#77.                                      ]],
+-      [[                                      ^?^B5~?^!!:..:^^.7B^?^                                      ]],
+-      [[                                      7G?Y!#PJ!~~:...^Y~Y7G!                                      ]],
+-      [[                                      J7YGJY7!!!~~~~~75JGY7J                                      ]],
+-      [[                                      !G5J?^.....  ...^?JYG7                                      ]],
+-      [[                                       .^~~~!J7777?JP!~~~^.                                       ]],
+-      [[                                             ^!YYYY!^                                             ]],
+-      [[                                               .~~.                                               ]],
+-      [[                                                                                                  ]],
+-    },
+-    ["hydra"] = {
+-      [[                                         ]],
+-      [[   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆            ]],
+-      [[    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦        ]],
+-      [[          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄        ]],
+-      [[           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄      ]],
+-      [[          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀     ]],
+-      [[   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ]],
+-      [[  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄    ]],
+-      [[ ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ]],
+-      [[ ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄  ]],
+-      [[      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆       ]],
+-      [[       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃      ]],
+-      [[                                         ]],
+-    },
+-    ["octopus"] = {
+-      [[                            ]],
+-      [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣴⣶⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀ ]],
+-      [[ ⠀⠀⠀⠀⣠⡤⣤⣄⣾⣿⣿⣿⣿⣿⣿⣷⣠⣀⣄⡀⠀⠀⠀⠀]],
+-      [[ ⠀⠀⠀⠀⠙⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣬⡿⠀⠀⠀⠀]],
+-      [[ ⠀⠀⠀⠀⠀⢀⣼⠟⢿⣿⣿⣿⣿⣿⣿⡿⠘⣷⣄⠀⠀⠀⠀⠀]],
+-      [[ ⣰⠛⠛⣿⢠⣿⠋⠀⠀⢹⠻⣿⣿⡿⢻⠁⠀⠈⢿⣦⠀⠀⠀⠀]],
+-      [[ ⢈⣵⡾⠋⣿⣯⠀⠀⢀⣼⣷⣿⣿⣶⣷⡀⠀⠀⢸⣿⣀⣀⠀⠀]],
+-      [[ ⢾⣿⣀⠀⠘⠻⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⠿⣿⡁⠀⠀⠀]],
+-      [[ ⠈⠙⠛⠿⠿⠿⢿⣿⡿⣿⣿⡿⢿⣿⣿⣿⣷⣄⠀⠘⢷⣆⠀⠀]],
+-      [[ ⠀⠀⠀⠀⠀⢠⣿⠏⠀⣿⡏⠀⣼⣿⠛⢿⣿⣿⣆⠀⠀⣿⡇⡀ ]],
+-      [[ ⠀⠀⠀⠀⢀⣾⡟⠀⠀⣿⣇⠀⢿⣿⡀⠈⣿⡌⠻⠷⠾⠿⣻⠁ ]],
+-      [[ ⠀⠀⣠⣶⠟⠫⣤⠀⠀⢸⣿⠀⣸⣿⢇⡤⢼⣧⠀⠀⠀⢀⣿⠀ ]],
+-      [[ ⠀⣾⡏⠀⡀⣠⡟⠀⠀⢀⣿⣾⠟⠁⣿⡄⠀⠻⣷⣤⣤⡾⠋⠀ ]],
+-      [[ ⠀⠙⠷⠾⠁⠻⣧⣀⣤⣾⣿⠋⠀⠀⢸⣧⠀⠀⠀⠉⠁⠀⠀⠀ ]],
+-      [[ ⠀⠀⠀⠀⠀⠀⠈⠉⠉⠹⣿⣄⠀⠀⣸⡿⠀⠀⠀⠀⠀⠀⠀⠀  ]],
+-      [[ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠿⠟⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀  ]],
+-      [[                              ]],
+-    },
+-    ["saturn"] = {
+-      [[                                                ]],
+-      [[                                          _.oo. ]],
+-      [[                  _.u[[/;:,.         .odMMMMMM' ]],
+-      [[               .o888UU[[[/;:-.  .o@P^    MMM^   ]],
+-      [[              oN88888UU[[[/;::-.        dP^     ]],
+-      [[             dNMMNN888UU[[[/;:--.   .o@P^       ]],
+-      [[            ,MMMMMMN888UU[[/;::-. o@^           ]],
+-      [[            NNMMMNN888UU[[[/~.o@P^              ]],
+-      [[            888888888UU[[[/o@^-..               ]],
+-      [[           oI8888UU[[[/o@P^:--..                ]],
+-      [[        .@^  YUU[[[/o@^;::---..                 ]],
+-      [[      oMP     ^/o@P^;:::---..                   ]],
+-      [[   .dMMM    .o@^ ^;::---...                     ]],
+-      [[  dMMMMMMM@^`       `^^^^                       ]],
+-      [[ YMMMUP^                                        ]],
+-      [[  ^^                                            ]],
+-      [[                                                ]],
+-    },
+-    ["saturn_plus"] = {
+-      [[                                                   ]],
+-      [[                                              ___  ]],
+-      [[                                           ,o88888 ]],
+-      [[                                        ,o8888888' ]],
+-      [[                  ,:o:o:oooo.        ,8O88Pd8888"  ]],
+-      [[              ,.::.::o:ooooOoOoO. ,oO8O8Pd888'"    ]],
+-      [[            ,.:.::o:ooOoOoOO8O8OOo.8OOPd8O8O"      ]],
+-      [[           , ..:.::o:ooOoOOOO8OOOOo.FdO8O8"        ]],
+-      [[          , ..:.::o:ooOoOO8O888O8O,COCOO"          ]],
+-      [[         , . ..:.::o:ooOoOOOO8OOOOCOCO"            ]],
+-      [[          . ..:.::o:ooOoOoOO8O8OCCCC"o             ]],
+-      [[             . ..:.::o:ooooOoCoCCC"o:o             ]],
+-      [[             . ..:.::o:o:,cooooCo"oo:o:            ]],
+-      [[          `   . . ..:.:cocoooo"'o:o:::'            ]],
+-      [[          .`   . ..::ccccoc"'o:o:o:::'             ]],
+-      [[         :.:.    ,c:cccc"':.:.:.:.:.'              ]],
+-      [[       ..:.:"'`::::c:"'..:.:.:.:.:.'               ]],
+-      [[     ...:.'.:.::::"'    . . . . .'                 ]],
+-      [[    .. . ....:."' `   .  . . ''                    ]],
+-      [[  . . . ...."'                                     ]],
+-      [[  .. . ."'                                         ]],
+-      [[ .                                                 ]],
+-      [[                                                   ]],
+-    },
+-    ["earth"] = {
+-      [[                                ]],
+-      [[             ,,,,,,             ]],
+-      [[         o#'9MMHb':'-,o,        ]],
+-      [[      .oH":HH$' "' ' -*R&o,     ]],
+-      [[     dMMM*""'`'      .oM"HM?.   ]],
+-      [[   ,MMM'          "HLbd< ?&H\   ]],
+-      [[  .:MH ."\          ` MM  MM&b  ]],
+-      [[ . "*H    -        &MMMMMMMMMH: ]],
+-      [[ .    dboo        MMMMMMMMMMMM. ]],
+-      [[ .   dMMMMMMb      *MMMMMMMMMP. ]],
+-      [[ .    MMMMMMMP        *MMMMMP . ]],
+-      [[      `#MMMMM           MM6P ,  ]],
+-      [[  '    `MMMP"           HM*`,   ]],
+-      [[   '    :MM             .- ,    ]],
+-      [[    '.   `#?..  .       ..'     ]],
+-      [[       -.   .         .-        ]],
+-      [[         ''-.oo,oo.-''          ]],
+-      [[                                ]],
+-    },
+-    -- [""] = {},
+-  },
+-  banners = {
+-    ["rowan_cap"] = {
+-      [[                                                    ]],
+-      [[     dMMMMb  dMMMMMP .aMMMb  dMP dMP dMP dMMMMMMMMb ]],
+-      [[    dMP dMP dMP     dMP"dMP dMP dMP amr dMP"dMP"dMP ]],
+-      [[   dMP dMP dMMMP   dMP dMP dMP dMP dMP dMP dMP dMP  ]],
+-      [[  dMP dMP dMP     dMP.aMP  YMvAP" dMP dMP dMP dMP   ]],
+-      [[ dMP dMP dMMMMMP  VMMMP"    VP"  dMP dMP dMP dMP    ]],
+-      [[                                                    ]],
+-    },
+-    ["dos_rebel"] = {
+-      [[                                                                       ]],
+-      [[  ██████   █████                   █████   █████  ███                  ]],
+-      [[ ░░██████ ░░███                   ░░███   ░░███  ░░░                   ]],
+-      [[  ░███░███ ░███   ██████   ██████  ░███    ░███  ████  █████████████   ]],
+-      [[  ░███░░███░███  ███░░███ ███░░███ ░███    ░███ ░░███ ░░███░░███░░███  ]],
+-      [[  ░███ ░░██████ ░███████ ░███ ░███ ░░███   ███   ░███  ░███ ░███ ░███  ]],
+-      [[  ░███  ░░█████ ░███░░░  ░███ ░███  ░░░█████░    ░███  ░███ ░███ ░███  ]],
+-      [[  █████  ░░█████░░██████ ░░██████     ░░███      █████ █████░███ █████ ]],
+-      [[ ░░░░░    ░░░░░  ░░░░░░   ░░░░░░       ░░░      ░░░░░ ░░░░░ ░░░ ░░░░░  ]],
+-      [[                                                                       ]],
+-    },
+-    ["graffiti"] = {
+-      [[                                             ]],
+-      [[  _______             ____   ___.__          ]],
+-      [[  \      \   ____  ___\   \ /   |__| _____   ]],
+-      [[  /   |   \_/ __ \/  _ \   Y   /|  |/     \  ]],
+-      [[ /    |    \  ___(  <_> \     / |  |  Y Y  \ ]],
+-      [[ \____|__  /\___  \____/ \___/  |__|__|_|  / ]],
+-      [[         \/     \/                       \/  ]],
+-      [[                                             ]],
+-    },
+-    ["isometric1"] = {
+-      [[                                                                                   ]],
+-      [[     /\__\         /\  \         /\  \         /\__\          ___        /\__\     ]],
+-      [[    /::|  |       /::\  \       /::\  \       /:/  /         /\  \      /::|  |    ]],
+-      [[   /:|:|  |      /:/\:\  \     /:/\:\  \     /:/  /          \:\  \    /:|:|  |    ]],
+-      [[  /:/|:|  |__   /::\~\:\  \   /:/  \:\  \   /:/__/  ___      /::\__\  /:/|:|__|__  ]],
+-      [[ /:/ |:| /\__\ /:/\:\ \:\__\ /:/__/ \:\__\  |:|  | /\__\  __/:/\/__/ /:/ |::::\__\ ]],
+-      [[ \/__|:|/:/  / \:\~\:\ \/__/ \:\  \ /:/  /  |:|  |/:/  / /\/:/  /    \/__/~~/:/  / ]],
+-      [[     |:/:/  /   \:\ \:\__\    \:\  /:/  /   |:|__/:/  /  \::/__/           /:/  /  ]],
+-      [[     |::/  /     \:\ \/__/     \:\/:/  /     \::::/__/    \:\__\          /:/  /   ]],
+-      [[     /:/  /       \:\__\        \::/  /       ~~~~         \/__/         /:/  /    ]],
+-      [[     \/__/         \/__/         \/__/                                   \/__/     ]],
+-      [[                                                                                   ]],
+-    },
+-    ["isometric4"] = {
+-      [[                                                                                    ]],
+-      [[      ___           ___           ___                                      ___      ]],
+-      [[     /  /\         /  /\         /  /\          ___            ___        /  /\     ]],
+-      [[    /  /::|       /  /::\       /  /::\        /  /\          /__/\      /  /::|    ]],
+-      [[   /  /:|:|      /  /:/\:\     /  /:/\:\      /  /:/          \__\:\    /  /:|:|    ]],
+-      [[  /  /:/|:|__   /  /::\ \:\   /  /:/  \:\    /  /:/           /  /::\  /  /:/|:|__  ]],
+-      [[ /__/:/ |:| /\ /__/:/\:\ \:\ /__/:/ \__\:\  /__/:/  ___    __/  /:/\/ /__/:/_|::::\ ]],
+-      [[ \__\/  |:|/:/ \  \:\ \:\_\/ \  \:\ /  /:/  |  |:| /  /\  /__/\/:/~~  \__\/  /~~/:/ ]],
+-      [[     |  |:/:/   \  \:\ \:\    \  \:\  /:/   |  |:|/  /:/  \  \::/           /  /:/  ]],
+-      [[     |__|::/     \  \:\_\/     \  \:\/:/    |__|:|__/:/    \  \:\          /  /:/   ]],
+-      [[     /__/:/       \  \:\        \  \::/      \__\::::/      \__\/         /__/:/    ]],
+-      [[     \__\/         \__\/         \__\/           ~~~~                     \__\/     ]],
+-      [[                                                                                    ]],
+-    },
+-    ["ogre"] = {
+-      [[                                     ]],
+-      [[      __                _            ]],
+-      [[   /\ \ \___  ___/\   /(_)_ __ ___   ]],
+-      [[  /  \/ / _ \/ _ \ \ / | | '_ ` _ \  ]],
+-      [[ / /\  |  __| (_) \ V /| | | | | | | ]],
+-      [[ \_\ \/ \___|\___/ \_/ |_|_| |_| |_| ]],
+-      [[                                     ]],
+-    },
+-    ["slant_relief"] = {
+-      [[                                                                                                   ]],
+-      [[ /\\\\\_____/\\\_______________________________/\\\________/\\\___________________________         ]],
+-      [[ \/\\\\\\___\/\\\______________________________\/\\\_______\/\\\__________________________         ]],
+-      [[ _\/\\\/\\\__\/\\\______________________________\//\\\______/\\\___/\\\_____________________       ]],
+-      [[  _\/\\\//\\\_\/\\\_____/\\\\\\\\______/\\\\\_____\//\\\____/\\\___\///_____/\\\\\__/\\\\\__       ]],
+-      [[   _\/\\\\//\\\\/\\\___/\\\/////\\\___/\\\///\\\____\//\\\__/\\\_____/\\\__/\\\///\\\\\///\\\_     ]],
+-      [[    _\/\\\_\//\\\/\\\__/\\\\\\\\\\\___/\\\__\//\\\____\//\\\/\\\_____\/\\\_\/\\\_\//\\\__\/\\\     ]],
+-      [[     _\/\\\__\//\\\\\\_\//\\///////___\//\\\__/\\\______\//\\\\\______\/\\\_\/\\\__\/\\\__\/\\\_   ]],
+-      [[      _\/\\\___\//\\\\\__\//\\\\\\\\\\__\///\\\\\/________\//\\\_______\/\\\_\/\\\__\/\\\__\/\\\   ]],
+-      [[       _\///_____\/////____\//////////_____\/////___________\///________\///__\///___\///___\///__ ]],
+-      [[                                                                                                   ]],
+-    },
+-    ["ansi_shadow"] = {
+-      [[                                                    ]],
+-      [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ]],
+-      [[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ]],
+-      [[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ]],
+-      [[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ]],
+-      [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ]],
+-      [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ]],
+-      [[                                                    ]],
+-    },
+-    ["bloody"] = {
+-      [[                                                     ]],
+-      [[  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ ]],
+-      [[  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ ]],
+-      [[ ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ ]],
+-      [[ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  ]],
+-      [[ ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ ]],
+-      [[ ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ ]],
+-      [[ ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ ]],
+-      [[    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    ]],
+-      [[          ░    ░  ░    ░ ░        ░   ░         ░    ]],
+-      [[                                 ░                   ]],
+-      [[                                                     ]],
+-    },
+-    ["delta_corps_priest1"] = {
+-      [[                                                                   ]],
+-      [[ ███▄▄▄▄      ▄████████  ▄██████▄   ▄█    █▄   ▄█    ▄▄▄▄███▄▄▄▄   ]],
+-      [[ ███▀▀▀██▄   ███    ███ ███    ███ ███    ███ ███  ▄██▀▀▀███▀▀▀██▄ ]],
+-      [[ ███   ███   ███    █▀  ███    ███ ███    ███ ███▌ ███   ███   ███ ]],
+-      [[ ███   ███  ▄███▄▄▄     ███    ███ ███    ███ ███▌ ███   ███   ███ ]],
+-      [[ ███   ███ ▀▀███▀▀▀     ███    ███ ███    ███ ███▌ ███   ███   ███ ]],
+-      [[ ███   ███   ███    █▄  ███    ███ ███    ███ ███  ███   ███   ███ ]],
+-      [[ ███   ███   ███    ███ ███    ███ ███    ███ ███  ███   ███   ███ ]],
+-      [[  ▀█   █▀    ██████████  ▀██████▀   ▀██████▀  █▀    ▀█   ███   █▀  ]],
+-      [[                                                                   ]],
+-    },
+-    ["elite"] = {
+-      [[                                   ]],
+-      [[  ▐ ▄ ▄▄▄ .       ▌ ▐·▪  • ▌ ▄ ·.  ]],
+-      [[ •█▌▐█▀▄.▀·▪     ▪█·█▌██ ·██ ▐███▪ ]],
+-      [[ ▐█▐▐▌▐▀▀▪▄ ▄█▀▄ ▐█▐█•▐█·▐█ ▌▐▌▐█· ]],
+-      [[ ██▐█▌▐█▄▄▌▐█▌.▐▌ ███ ▐█▌██ ██▌▐█▌ ]],
+-      [[ ▀▀ █▪ ▀▀▀  ▀█▄▀▪. ▀  ▀▀▀▀▀  █▪▀▀▀ ]],
+-      [[                                   ]],
+-    },
+-    ["the_edge"] = {
+-      [[                                       ]],
+-      [[    ▄   ▄███▄   ████▄     ▄   ▄█ █▀▄▀█ ]],
+-      [[     █  █▀   ▀  █   █      █  ██ █ █ █ ]],
+-      [[ ██   █ ██▄▄    █   █ █     █ ██ █ ▄ █ ]],
+-      [[ █ █  █ █▄   ▄▀ ▀████  █    █ ▐█ █   █ ]],
+-      [[ █  █ █ ▀███▀           █  █   ▐    █  ]],
+-      [[ █   ██                  █▐        ▀   ]],
+-      [[                         ▐             ]],
+-      [[                                       ]],
+-    },
+-    ["banner3"] = {
+-      [[                                                      ]],
+-      [[ ##    ## ########  #######  ##     ## #### ##     ## ]],
+-      [[ ###   ## ##       ##     ## ##     ##  ##  ###   ### ]],
+-      [[ ####  ## ##       ##     ## ##     ##  ##  #### #### ]],
+-      [[ ## ## ## ######   ##     ## ##     ##  ##  ## ### ## ]],
+-      [[ ##  #### ##       ##     ##  ##   ##   ##  ##     ## ]],
+-      [[ ##   ### ##       ##     ##   ## ##    ##  ##     ## ]],
+-      [[ ##    ## ########  #######     ###    #### ##     ## ]],
+-      [[                                                      ]],
+-    },
+-    ["colossal"] = {
+-      [[                                                            ]],
+-      [[ 888b    888                  888     888 d8b               ]],
+-      [[ 8888b   888                  888     888 Y8P               ]],
+-      [[ 88888b  888                  888     888                   ]],
+-      [[ 888Y88b 888  .d88b.   .d88b. Y88b   d88P 888 88888b.d88b.  ]],
+-      [[ 888 Y88b888 d8P  Y8b d88""88b Y88b d88P  888 888 "888 "88b ]],
+-      [[ 888  Y88888 88888888 888  888  Y88o88P   888 888  888  888 ]],
+-      [[ 888   Y8888 Y8b.     Y88..88P   Y888P    888 888  888  888 ]],
+-      [[ 888    Y888  "Y8888   "Y88P"     Y8P     888 888  888  888 ]],
+-      [[                                                            ]],
+-    },
+-    ["def_leppard"] = {
+-      [[                                                                         ]],
+-      [[                               :                                         ]],
+-      [[ L.                     ,;    t#,                                        ]],
+-      [[ EW:        ,ft       f#i    ;##W.              t                        ]],
+-      [[ E##;       t#E     .E#t    :#L:WE              Ej            ..       : ]],
+-      [[ E###t      t#E    i#W,    .KG  ,#D  t      .DD.E#,          ,W,     .Et ]],
+-      [[ E#fE#f     t#E   L#D.     EE    ;#f EK:   ,WK. E#t         t##,    ,W#t ]],
+-      [[ E#t D#G    t#E :K#Wfff;  f#.     t#iE#t  i#D   E#t        L###,   j###t ]],
+-      [[ E#t  f#E.  t#E i##WLLLLt :#G     GK E#t j#f    E#t      .E#j##,  G#fE#t ]],
+-      [[ E#t   t#K: t#E  .E#L      ;#L   LW. E#tL#i     E#t     ;WW; ##,:K#i E#t ]],
+-      [[ E#t    ;#W,t#E    f#E:     t#f f#:  E#WW,      E#t    j#E.  ##f#W,  E#t ]],
+-      [[ E#t     :K#D#E     ,WW;     f#D#;   E#K:       E#t  .D#L    ###K:   E#t ]],
+-      [[ E#t      .E##E      .D#;     G#t    ED.        E#t :K#t     ##D.    E#t ]],
+-      [[ ..         G#E        tt      t     t          E#t ...      #G      ..  ]],
+-      [[             fE                                 ,;.          j           ]],
+-      [[              ,                                                          ]],
+-      [[                                                                         ]],
+-    },
+-    ["larry_3d"] = {
+-      [[                                                     ]],
+-      [[  __  __                 __  __                      ]],
+-      [[ /\ \/\ \               /\ \/\ \  __                 ]],
+-      [[ \ \ `\\ \     __    ___\ \ \ \ \/\_\    ___ ___     ]],
+-      [[  \ \ , ` \  /'__`\ / __`\ \ \ \ \/\ \ /' __` __`\   ]],
+-      [[   \ \ \`\ \/\  __//\ \L\ \ \ \_/ \ \ \/\ \/\ \/\ \  ]],
+-      [[    \ \_\ \_\ \____\ \____/\ `\___/\ \_\ \_\ \_\ \_\ ]],
+-      [[     \/_/\/_/\/____/\/___/  `\/__/  \/_/\/_/\/_/\/_/ ]],
+-      [[                                                     ]],
+-    },
+-    ["lean"] = {
+-      [[                                                                  ]],
+-      [[     _/      _/                      _/      _/  _/               ]],
+-      [[    _/_/    _/    _/_/      _/_/    _/      _/      _/_/_/  _/_/  ]],
+-      [[   _/  _/  _/  _/_/_/_/  _/    _/  _/      _/  _/  _/    _/    _/ ]],
+-      [[  _/    _/_/  _/        _/    _/    _/  _/    _/  _/    _/    _/  ]],
+-      [[ _/      _/    _/_/_/    _/_/        _/      _/  _/    _/    _/   ]],
+-      [[                                                                  ]],
+-    },
+-    ["sharp"] = {
+-      [[                                                                       ]],
+-      [[                                                                     ]],
+-      [[       ████ ██████           █████      ██                     ]],
+-      [[      ███████████             █████                             ]],
+-      [[      █████████ ███████████████████ ███   ███████████   ]],
+-      [[     █████████  ███    █████████████ █████ ██████████████   ]],
+-      [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+-      [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+-      [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+-      [[                                                                       ]],
+-    },
+   },
+ }
+ 
+diff --git a/lua/core/plugins/cmp.lua b/lua/core/plugins/cmp.lua
+index 6c7dfd6..aee145a 100644
+--- a/lua/core/plugins/cmp.lua
++++ b/lua/core/plugins/cmp.lua
+@@ -27,9 +27,9 @@ local M = {
+       table.insert(sources, { name = "copilot", group_index = 2 })
+     end
+ 
+-    if vim.g.config.plugins.emoji.enable then
+-      table.insert(sources, { name = "emoji" })
+-    end
++    -- if vim.g.config.plugins.emoji.enable then
++    --   table.insert(sources, { name = "emoji" })
++    -- end
+ 
+     local format = {
+       mode = "symbol_text",
+diff --git a/lua/core/plugins/dap.lua b/lua/core/plugins/dap.lua
+deleted file mode 100644
+index 51b1886..0000000
+--- a/lua/core/plugins/dap.lua
++++ /dev/null
+@@ -1,14 +0,0 @@
+-local M = {
+-  {
+-    "mfussenegger/nvim-dap",
+-    lazy = true,
+-    dependencies = {
+-      "mfussenegger/nvim-dap-python",
+-      "leoluz/nvim-dap-go",
+-      "rcarriga/nvim-dap-ui",
+-      "theHamsta/nvim-dap-virtual-text",
+-    },
+-  },
+-}
+-
+-return M
+diff --git a/lua/core/plugins/dap/dap.lua b/lua/core/plugins/dap/dap.lua
+deleted file mode 100644
+index b700a72..0000000
+--- a/lua/core/plugins/dap/dap.lua
++++ /dev/null
+@@ -1,69 +0,0 @@
+-local M = {}
+-
+-local function configure()
+-  local dap_breakpoint = {
+-    error = {
+-      text = "🟥",
+-      texthl = "LspDiagnosticsSignError",
+-      linehl = "",
+-      numhl = "",
+-    },
+-    rejected = {
+-      text = "",
+-      texthl = "LspDiagnosticsSignHint",
+-      linehl = "",
+-      numhl = "",
+-    },
+-    stopped = {
+-      text = "⭐️",
+-      texthl = "LspDiagnosticsSignInformation",
+-      linehl = "DiagnosticUnderlineInfo",
+-      numhl = "LspDiagnosticsSignInformation",
+-    },
+-  }
+-
+-  vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+-  vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
+-  vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+-end
+-
+-local function configure_exts()
+-  -- require("dapui").setup()
+-  require("nvim-dap-virtual-text").setup({
+-    commented = true,
+-  })
+-
+-  local dap, dapui = require("dap"), require("dapui")
+-  dapui.setup({}) -- use default
+-  dap.listeners.after.event_initialized["dapui_config"] = function()
+-    dapui.open({})
+-  end
+-  dap.listeners.before.event_terminated["dapui_config"] = function()
+-    dapui.close({})
+-  end
+-  dap.listeners.before.event_exited["dapui_config"] = function()
+-    dapui.close({})
+-  end
+-end
+-
+-local function configure_debuggers()
+-  require("core.plugins.dap.python").setup()
+-  require("core.plugins.dap.go").setup()
+-end
+-
+-local function create_mapping()
+-  local wk = require("which-key")
+-  wk.register({
+-    d = { "Debug" },
+-  }, { prefix = "<leader>", mode = "n", {} })
+-end
+-
+-function M.setup()
+-  configure() -- Configuration
+-  configure_exts() -- Extensions
+-  configure_debuggers() -- Debugger
+-  create_mapping() -- which-key mapping
+-  require("core.plugins.hydra.dap") -- enable Hydra head
+-end
+-
+-return M
+diff --git a/lua/core/plugins/dap/go.lua b/lua/core/plugins/dap/go.lua
+deleted file mode 100644
+index 6bb3304..0000000
+--- a/lua/core/plugins/dap/go.lua
++++ /dev/null
+@@ -1,7 +0,0 @@
+-local M = {}
+-
+-function M.setup()
+-  require("dap-go").setup()
+-end
+-
+-return M
+diff --git a/lua/core/plugins/dap/python.lua b/lua/core/plugins/dap/python.lua
+deleted file mode 100644
+index 1365399..0000000
+--- a/lua/core/plugins/dap/python.lua
++++ /dev/null
+@@ -1,7 +0,0 @@
+-local M = {}
+-
+-function M.setup(_)
+-  require("dap-python").setup("python3", {})
+-end
+-
+-return M
+diff --git a/lua/core/plugins/dropbear.lua b/lua/core/plugins/dropbear.lua
+deleted file mode 100644
+index af36e6b..0000000
+--- a/lua/core/plugins/dropbear.lua
++++ /dev/null
+@@ -1,7 +0,0 @@
+-local utils = require("utils.functions")
+-
+-return {
+-  "Bekaboo/dropbar.nvim",
+-  event = { "BufReadPost", "BufNewFile" },
+-  enabled = utils.isNeovimVersionsatisfied(10),
+-}
+diff --git a/lua/core/plugins/emoji.lua b/lua/core/plugins/emoji.lua
+deleted file mode 100644
+index f97f933..0000000
+--- a/lua/core/plugins/emoji.lua
++++ /dev/null
+@@ -1,11 +0,0 @@
+-local config = vim.g.config.plugins.emoji
+-return {
+-  "allaman/emoji.nvim",
+-  ft = "markdown",
+-  dependencies = "hrsh7th/nvim-cmp",
+-  opts = {
+-    enable_cmp_integration = config.enable_cmp_integration,
+-    plugin_path = config.plugin_path,
+-  },
+-  dev = true,
+-}
+diff --git a/lua/core/plugins/hydra/dap.lua b/lua/core/plugins/hydra/dap.lua
+deleted file mode 100644
+index 9f03279..0000000
+--- a/lua/core/plugins/hydra/dap.lua
++++ /dev/null
+@@ -1,47 +0,0 @@
+-local Hydra = require("hydra")
+-local dap = require("dap")
+-
+-local hint = [[
+- _n_: step over   _s_: Continue/Start   _b_: Breakpoint
+- _i_: step into   _x_: Disconnect       _K_: Hover Variables
+- _o_: step out    _X_: Quit             _E_: Evaluate
+- _c_: to cursor   _C_: Close UI         _r_: Toggle Repl
+- ^
+- ^ ^              _q_: exit
+-]]
+-
+-local dap_hydra = Hydra({
+-  hint = hint,
+-  config = {
+-    color = "pink",
+-    invoke_on_body = true,
+-    hint = {
+-      position = "bottom",
+-      border = "rounded",
+-    },
+-  },
+-  name = "dap",
+-  mode = { "n", "x" },
+-  body = "<leader>d",
+-  heads = {
+-    { "C", "<cmd>lua require('dapui').close()<cr>:DapVirtualTextForceRefresh<cr>", { silent = true } },
+-    { "E", "<cmd>lua require('dapui').eval()<cr>", { silent = true } },
+-    { "K", "<cmd>lua require('dap.ui.widgets').hover()<cr>", { silent = true } },
+-    { "X", dap.close, { silent = true } },
+-    { "b", dap.toggle_breakpoint, { silent = true } },
+-    { "c", dap.run_to_cursor, { silent = true } },
+-    { "i", dap.step_into, { silent = true } },
+-    { "n", dap.step_over, { silent = true } },
+-    { "o", dap.step_out, { silent = true } },
+-    { "r", dap.repl.toggle, { silent = true } },
+-    { "s", dap.continue, { silent = true } },
+-    { "x", "<cmd>lua require'dap'.disconnect({ terminateDebuggee = false })<cr>", { exit = true, silent = true } },
+-    { "q", nil, { exit = true, nowait = true } },
+-  },
+-})
+-
+-Hydra.spawn = function(head)
+-  if head == "dap-hydra" then
+-    dap_hydra:activate()
+-  end
+-end
+diff --git a/lua/core/plugins/lsp/lsp.lua b/lua/core/plugins/lsp/lsp.lua
+index 5fdd0ab..f2d78a6 100644
+--- a/lua/core/plugins/lsp/lsp.lua
++++ b/lua/core/plugins/lsp/lsp.lua
+@@ -26,23 +26,23 @@ for _, lsp in ipairs(conf.lsp_servers) do
+     flags = { debounce_text_changes = 150 },
+     settings = {
+       json = lsp_settings.json,
+-      Lua = lsp_settings.lua,
+-      ltex = lsp_settings.ltex,
++      -- Lua = lsp_settings.lua,
++      -- ltex = lsp_settings.ltex,
+       redhat = { telemetry = { enabled = false } },
+-      texlab = lsp_settings.tex,
++      -- texlab = lsp_settings.tex,
+       yaml = lsp_settings.yaml,
+     },
+   })
+ end
+ 
+-vim.api.nvim_create_user_command(
+-  "LtexLang",
+-  "lua require('core.plugins.lsp.utils').set_ltex_lang(<q-args>)",
+-  { nargs = 1, desc = "Set ltex-ls language" }
+-)
+-vim.keymap.set(
+-  "n",
+-  "<leader>mx",
+-  "<cmd>lua require('core.plugins.lsp.utils').set_ltex_lang(vim.g.config.plugins.ltex.additional_lang)<cr>",
+-  { desc = "Set ltex-ls language" }
+-)
++-- vim.api.nvim_create_user_command(
++--   -- "LtexLang",
++--   "lua require('core.plugins.lsp.utils').set_ltex_lang(<q-args>)",
++--   { nargs = 1, desc = "Set ltex-ls language" }
++-- )
++-- vim.keymap.set(
++--   "n",
++--   "<leader>mx",
++--   "<cmd>lua require('core.plugins.lsp.utils').set_ltex_lang(vim.g.config.plugins.ltex.additional_lang)<cr>",
++--   { desc = "Set ltex-ls language" }
++-- )
+diff --git a/lua/core/plugins/lsp/none-ls.lua b/lua/core/plugins/lsp/none-ls.lua
+index 70688d4..254cf4d 100644
+--- a/lua/core/plugins/lsp/none-ls.lua
++++ b/lua/core/plugins/lsp/none-ls.lua
+@@ -4,7 +4,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+ nls.setup({
+   sources = {
+     nls.builtins.formatting.stylua.with({ extra_args = { "--indent-type", "Spaces", "--indent-width", "2" } }),
+-    nls.builtins.diagnostics.eslint_d,
++    -- nls.builtins.diagnostics.eslint_d,
+     nls.builtins.formatting.prettier.with({
+       extra_args = { "--single-quote", "false" },
+     }),
+@@ -12,13 +12,13 @@ nls.setup({
+     nls.builtins.formatting.black,
+     nls.builtins.formatting.goimports,
+     nls.builtins.formatting.gofumpt,
+-    nls.builtins.formatting.latexindent.with({
+-      extra_args = { "-g", "/dev/null" }, -- https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3
+-    }),
+-    nls.builtins.code_actions.shellcheck,
++    -- nls.builtins.formatting.latexindent.with({
++    --   extra_args = { "-g", "/dev/null" }, -- https://github.com/cmhughes/latexindent.pl/releases/tag/V3.9.3
++    -- }),
++    -- nls.builtins.code_actions.shellcheck,
+     nls.builtins.code_actions.gitsigns,
+     nls.builtins.formatting.shfmt,
+-    nls.builtins.diagnostics.ruff,
++    -- nls.builtins.diagnostics.ruff,
+   },
+   on_attach = function(client, bufnr)
+     vim.keymap.set(
+diff --git a/lua/core/plugins/lsp/settings/init.lua b/lua/core/plugins/lsp/settings/init.lua
+index d9d1316..667a60c 100644
+--- a/lua/core/plugins/lsp/settings/init.lua
++++ b/lua/core/plugins/lsp/settings/init.lua
+@@ -1,9 +1,9 @@
+ local M = {}
+ 
+-M.lua = require("core.plugins.lsp.settings.lua_ls")
++-- M.lua = require("core.plugins.lsp.settings.lua_ls")
+ M.json = require("core.plugins.lsp.settings.jsonls")
+-M.tex = require("core.plugins.lsp.settings.tex")
++-- M.tex = require("core.plugins.lsp.settings.tex")
+ M.yaml = require("core.plugins.lsp.settings.yaml")
+-M.ltex = require("core.plugins.lsp.settings.ltex")
++-- M.ltex = require("core.plugins.lsp.settings.ltex")
+ 
+ return M
+diff --git a/lua/core/plugins/lsp/settings/ltex.lua b/lua/core/plugins/lsp/settings/ltex.lua
+deleted file mode 100644
+index 1c07823..0000000
+--- a/lua/core/plugins/lsp/settings/ltex.lua
++++ /dev/null
+@@ -1,5 +0,0 @@
+-local opts = {
+-  checkFrequency = "save",
+-}
+-
+-return opts
+diff --git a/lua/core/plugins/lsp/settings/lua_ls.lua b/lua/core/plugins/lsp/settings/lua_ls.lua
+deleted file mode 100644
+index ba71bba..0000000
+--- a/lua/core/plugins/lsp/settings/lua_ls.lua
++++ /dev/null
+@@ -1,10 +0,0 @@
+--- https://github.com/sumneko/lua-language-server/blob/master/locale/en-us/setting.lua
+-local opts = {
+-  format = {
+-    enable = false, -- let null-ls handle the formatting
+-  },
+-  diagnostics = { globals = { "vim" } },
+-  telemetry = { enable = false },
+-}
+-
+-return opts
+diff --git a/lua/core/plugins/lsp/settings/tex.lua b/lua/core/plugins/lsp/settings/tex.lua
+deleted file mode 100644
+index af62220..0000000
+--- a/lua/core/plugins/lsp/settings/tex.lua
++++ /dev/null
+@@ -1,23 +0,0 @@
+-local opts = {
+-  auxDirectory = ".",
+-  bibtexFormatter = "texlab",
+-  build = {
+-    args = {
+-      "--keep-intermediates",
+-      "--keep-logs",
+-      "--synctex",
+-      "%f",
+-    },
+-    executable = "tectonic",
+-    forwardSearchAfter = false,
+-    onSave = false,
+-  },
+-  chktex = { onEdit = false, onOpenAndSave = false },
+-  diagnosticsDelay = 300,
+-  formatterLineLength = 80,
+-  forwardSearch = { args = {} },
+-  latexFormatter = "latexindent",
+-  latexindent = { modifyLineBreaks = false },
+-}
+-
+-return opts
+diff --git a/lua/core/plugins/neo-tree.lua b/lua/core/plugins/neo-tree.lua
+index 5bd2ab0..203e2d4 100644
+--- a/lua/core/plugins/neo-tree.lua
++++ b/lua/core/plugins/neo-tree.lua
+@@ -6,31 +6,31 @@ local M = {
+     "nvim-lua/plenary.nvim",
+     { "nvim-tree/nvim-web-devicons", lazy = true },
+     { "MunifTanjim/nui.nvim", lazy = true },
+-    {
+-      "s1n7ax/nvim-window-picker",
+-      lazy = true,
+-      opts = {
+-        filter_rules = {
+-          -- filter using buffer options
+-          bo = {
+-            -- if the file type is one of following, the window will be ignored
+-            filetype = {
+-              "neo-tree",
+-              "neo-tree-popup",
+-              "notify",
+-              "packer",
+-              "qf",
+-              "diff",
+-              "fugitive",
+-              "fugitiveblame",
+-            },
+-
+-            -- if the buffer type is one of following, the window will be ignored
+-            buftype = { "nofile", "help", "terminal" },
+-          },
+-        },
+-      },
+-    },
++    -- {
++    --   "s1n7ax/nvim-window-picker",
++    --   lazy = true,
++    --   opts = {
++    --     filter_rules = {
++    --       -- filter using buffer options
++    --       bo = {
++    --         -- if the file type is one of following, the window will be ignored
++    --         filetype = {
++    --           "neo-tree",
++    --           "neo-tree-popup",
++    --           "notify",
++    --           "packer",
++    --           "qf",
++    --           "diff",
++    --           "fugitive",
++    --           "fugitiveblame",
++    --         },
++    --
++    --         -- if the buffer type is one of following, the window will be ignored
++    --         buftype = { "nofile", "help", "terminal" },
++    --       },
++    --     },
++    --   },
++    -- },
+   },
+   keys = {
+     { "<leader>fp", "<cmd>Neotree reveal toggle<cr>", desc = "Toggle Filetree" },
+@@ -80,12 +80,12 @@ local M = {
+             "toggle_node",
+             nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+           },
+-          ["<2-LeftMouse>"] = "open_with_window_picker",
+-          ["<cr>"] = "open_with_window_picker",
+-          -- ["S"] = "open_split",
+-          ["S"] = "split_with_window_picker",
+-          -- ["s"] = "open_vsplit",
+-          ["s"] = "vsplit_with_window_picker",
++          -- ["<2-LeftMouse>"] = "open_with_window_picker",
++          -- ["<cr>"] = "open_with_window_picker",
++          ["<C-i>"] = "open_split",
++          -- ["S"] = "split_with_window_picker",
++          ["<C-v>"] = "open_vsplit",
++          -- ["s"] = "vsplit_with_window_picker",
+           ["t"] = "open_tabnew",
+           --["P"] = "toggle_preview",
+           ["C"] = "close_node",
+diff --git a/lua/core/plugins/neogit.lua b/lua/core/plugins/neogit.lua
+deleted file mode 100644
+index bb334ee..0000000
+--- a/lua/core/plugins/neogit.lua
++++ /dev/null
+@@ -1,36 +0,0 @@
+-local M = {
+-  "NeogitOrg/neogit",
+-  cmd = "Neogit",
+-  dependencies = {
+-    "nvim-lua/plenary.nvim",
+-  },
+-  opts = {
+-    disable_signs = false,
+-    disable_context_highlighting = false,
+-    disable_commit_confirmation = false,
+-    -- customize displayed signs
+-    signs = {
+-      -- { CLOSED, OPENED }
+-      section = { ">", "v" },
+-      item = { ">", "v" },
+-      hunk = { "", "" },
+-    },
+-    integrations = { diffview = true },
+-    -- override/add mappings
+-    mappings = {
+-      -- modify status buffer mappings
+-      status = {
+-        -- Adds a mapping with "B" as key that does the "BranchPopup" command
+-        -- ["B"] = "BranchPopup",
+-        -- ["C"] = "CommitPopup",
+-        -- ["P"] = "PullPopup",
+-        -- ["S"] = "Stage",
+-        -- ["D"] = "Discard",
+-        -- Removes the default mapping of "s"
+-        -- ["s"] = "",
+-      },
+-    },
+-  },
+-}
+-
+-return M
+diff --git a/lua/core/plugins/oil.lua b/lua/core/plugins/oil.lua
+deleted file mode 100644
+index 71cd1d6..0000000
+--- a/lua/core/plugins/oil.lua
++++ /dev/null
+@@ -1,8 +0,0 @@
+-return {
+-  "stevearc/oil.nvim",
+-  enabled = vim.g.config.plugins.oil.enable,
+-  dependencies = { "nvim-tree/nvim-web-devicons" },
+-  opts = {
+-    vim.g.config.plugins.oil.key_mappings(),
+-  },
+-}
+diff --git a/lua/core/plugins/overseer.lua b/lua/core/plugins/overseer.lua
+deleted file mode 100644
+index 6e88ed4..0000000
+--- a/lua/core/plugins/overseer.lua
++++ /dev/null
+@@ -1,17 +0,0 @@
+-return {
+-  "stevearc/overseer.nvim",
+-  enabled = vim.g.config.plugins.overseer.enable,
+-  keys = {
+-    { "<leader>r", "<cmd>OverseerRun<cr>", desc = "Overseer Run" },
+-    { "<leader>tr", "<cmd>OverseerToggle<cr>", desc = "Overseer" },
+-  },
+-  opts = {
+-    task_list = {
+-      bindings = {
+-        ["<C-l>"] = false,
+-        ["<C-h>"] = false,
+-      },
+-    },
+-  },
+-  config = true,
+-}
+diff --git a/lua/core/plugins/symbol-usage.lua b/lua/core/plugins/symbol-usage.lua
+deleted file mode 100644
+index 176ef91..0000000
+--- a/lua/core/plugins/symbol-usage.lua
++++ /dev/null
+@@ -1,15 +0,0 @@
+-local utils = require("utils.functions")
+-local event
+-if utils.isNeovimVersionsatisfied(10) then
+-  event = "LspAttach"
+-else
+-  event = "BufReadPre"
+-end
+-
+-return {
+-  "Wansmer/symbol-usage.nvim",
+-  event = event,
+-  enabled = vim.g.config.plugins.symbol_usage.enable,
+-  config = true,
+-  opts = vim.g.config.plugins.symbol_usage.opts,
+-}
+diff --git a/lua/core/plugins/telescope.lua b/lua/core/plugins/telescope.lua
+index c9e452e..1d04572 100644
+--- a/lua/core/plugins/telescope.lua
++++ b/lua/core/plugins/telescope.lua
+@@ -19,11 +19,10 @@ local M = {
+     { "<leader>sO", "<cmd>Telescope vim_options<cr>", desc = "Vim Options" },
+     { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "Registers" },
+     { "<leader>sw", "<cmd>Telescope grep_string<cr>", desc = "Word under cursor" },
+-    { "<leader>sS", "<cmd>Telescope symbols<cr>", desc = "Emoji" },
+     { "<leader>s:", "<cmd>Telescope search_history<cr>", desc = "Search History" },
+     { "<leader>s;", "<cmd>Telescope command_history<cr>", desc = "Command history" },
+     {
+-      "<leader>sW",
++      "<C-f>",
+       "<cmd>lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = '-w', only_sort_text = true, search = '' }<cr>",
+       desc = "Word search",
+     },
+@@ -35,13 +34,13 @@ local M = {
+     { "<leader>fb", "<cmd>Telescope file_browser grouped=true<cr>", desc = "Filebrowser" },
+     { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
+     { "<leader>ff", "<cmd>" .. require("utils.functions").project_files() .. "<cr>", desc = "Open file" },
+-    { "<leader>fF", "<cmd>Telescope find_files<cr>", desc = "Open file (ignore git)" },
++    { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Open file (ignore git)" },
+     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent files" },
+     -- misc
+     { "<leader>mt", "<cmd>Telescope<cr>", desc = "Telescope" },
+     -- Other
+     { "<leader>bb", "<cmd>Telescope buffers<cr>", desc = "Bufferlist" },
+-    { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
++    -- { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search in buffer" },
+   },
+   config = function()
+     local telescope = require("telescope")
+@@ -183,9 +182,9 @@ local M = {
+     if conf.telescope.fzf_native.enable then
+       telescope.load_extension("fzf")
+     end
+-    if conf.emoji.enable then
+-      telescope.load_extension("emoji")
+-    end
++    -- if conf.emoji.enable then
++    --   telescope.load_extension("emoji")
++    -- end
+   end,
+ }
+ 
+diff --git a/lua/core/plugins/vimtex.lua b/lua/core/plugins/vimtex.lua
+deleted file mode 100644
+index 732464d..0000000
+--- a/lua/core/plugins/vimtex.lua
++++ /dev/null
+@@ -1,42 +0,0 @@
+-local M = {
+-  "lervag/vimtex",
+-  ft = "tex",
+-  config = function()
+-    local conf = vim.g.config.plugins.tex
+-    local g = vim.g
+-    g.tex_flavor = "latex"
+-    -- TODO: config for winodows - if vim.fn.has("win32")
+-    if vim.fn.has("unix") == 1 then
+-      g.vimtex_view_method = conf.vimtex_view_method
+-      g.vimtex_view_skim_sync = 1
+-      g.vimtex_view_skim_activate = 1
+-    end
+-    g.vimtex_compiler_method = conf.vimtex_compiler_method
+-    g.vimtex_mappings_enabled = false
+-    -- Do not auto open quickfix on compile errors
+-    g.vimtex_quickfix_mode = 0
+-    -- vimtex toc options
+-    g.vimtex_toc_config = {
+-      split_pos = "rightbelow",
+-      split_width = 20,
+-      show_help = 0,
+-    }
+-    -- Latex warnings to ignore
+-    g.vimtex_quickfix_ignore_filters = {
+-      "Command terminated with space",
+-      "LaTeX Font Warning: Font shape",
+-      "Package caption Warning: The option",
+-      [[Underfull \\hbox (badness [0-9]*) in]],
+-      "Package enumitem Warning: Negative labelwidth",
+-      [[Overfull \\hbox ([0-9]*.[0-9]*pt too wide) in]],
+-      [[Package caption Warning: Unused \\captionsetup]],
+-      "Package typearea Warning: Bad type area settings!",
+-      [[Package fancyhdr Warning: \\headheight is too small]],
+-      [[Underfull \\hbox (badness [0-9]*) in paragraph at lines]],
+-      "Package hyperref Warning: Token not allowed in a PDF string",
+-      [[Overfull \\hbox ([0-9]*.[0-9]*pt too wide) in paragraph at lines]],
+-    }
+-  end,
+-}
+-
+-return M
