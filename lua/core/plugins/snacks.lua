@@ -38,7 +38,18 @@ local default_config = {
       timeout = 2000,
     },
     quickfile = { enabled = true },
-    scroll = { enabled = true },
+    scroll = {
+      enabled = true,
+      animate = {
+        duration = { step = 15, total = 100 },
+        easing = "linear",
+      },
+      spamming = 10, -- threshold for spamming detection
+      -- what buffers to animate
+      filter = function(buf)
+        return vim.g.snacks_scroll ~= false and vim.b[buf].snacks_scroll ~= false and vim.bo[buf].buftype ~= "terminal"
+      end,
+    },
     statuscolumn = { enabled = true },
     words = { enabled = true },
     zen = { enabled = true },
@@ -60,7 +71,7 @@ local default_config = {
     { "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
     { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
     { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-    { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
+    -- { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
     { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
     -- stylua: ignore end
   },

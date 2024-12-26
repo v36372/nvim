@@ -16,7 +16,7 @@ else
   lsp_key_mapping["document_diagnostics"] = "<cmd>FzfLua diagnostics_document<cr>"
   lsp_key_mapping["lsp_implementations"] = "<cmd>FzfLua lsp_implementations<cr>"
   lsp_key_mapping["lsp_document_symbols"] = "<cmd>FzfLua lsp_document_symbols<cr>"
-  lsp_key_mapping["lsp_references"] = "<cmd>Fzflua lsp_references<cr>"
+  lsp_key_mapping["lsp_references"] = "<cmd>FzfLua lsp_references<cr>"
   lsp_key_mapping["lsp_definitions"] = "<cmd>FzfLua lsp_definitions<cr>"
   lsp_key_mapping["lsp_type_definitions"] = "<cmd>FzfLua lsp_typedefs<cr>"
   lsp_key_mapping["workspace_diagnostics"] = "<cmd>FzfLua diagnostics_workspace<cr>"
@@ -49,16 +49,12 @@ M._keys = {
   -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
   {
     "<leader>ln",
-    function()
-      vim.diagnostic.jump({ count = 1 })
-    end,
+    vim.diagnostic.goto_next,
     desc = "Next Diagnostic",
   },
   {
     "<leader>lp",
-    function()
-      vim.diagnostic.jump({ count = -1 })
-    end,
+    vim.diagnostic.goto_next,
     desc = "Prev Diagnostic",
   },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },

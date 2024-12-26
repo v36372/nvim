@@ -18,7 +18,8 @@ local default_config = {
   },
   keys = {
     { "<leader>ss", "<cmd>FzfLua live_grep<cr>", desc = "Strings" },
-    { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Open" },
+    { "<leader>sw", "<cmd>FzfLua grep_cword<cr>", desc = "Word" },
+    { "<C-p>", "<cmd>FzfLua files<cr>", desc = "Open" },
     { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
     { "<leader>bb", "<cmd>FzfLua buffers<cr>", desc = "List" },
     -- { "<leader>r", "<cmd>FzfLua resume<cr>", desc = "Resume search" },
@@ -48,7 +49,7 @@ return {
   },
   -- catppuccin integration
   {
-    "catppuccin",
+    "moonfly",
     optional = true,
     opts = {
       integrations = { fzf = true },

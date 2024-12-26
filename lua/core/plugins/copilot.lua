@@ -2,7 +2,7 @@ return {
   "zbirenbaum/copilot.lua",
   build = ":Copilot auth",
   event = "InsertEnter",
-  enabled = vim.g.config.plugins.copilot.enable,
+  enabled = true,
   dependencies = {
     {
       "zbirenbaum/copilot-cmp",
@@ -34,7 +34,18 @@ return {
     local utils = require("utils.functions")
     utils.map("n", "<leader>mc", "<cmd>Copilot enable<cr>", { desc = "Enable Copilot" })
     require("copilot").setup({
-      suggestion = { enabled = false },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        debounce = 75,
+        keymap = {
+          accept = "<C-l>",
+          accept_word = false,
+          accept_line = false,
+          next = "<C-j>",
+          prev = "<C-k>",
+        },
+      },
       panel = { enabled = false },
     })
     if vim.g.config.plugins.copilot.disable_autostart then

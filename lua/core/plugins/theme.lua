@@ -8,6 +8,15 @@ local themes = {
       require("core.plugins.themes.nightfox")
     end,
   },
+  moonfly = {
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("core.plugins.themes.moonfly")
+    end,
+  },
   tundra = {
     "sam4llis/nvim-tundra",
     priority = 1000,

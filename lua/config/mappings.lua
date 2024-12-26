@@ -14,6 +14,7 @@ map("v", "p", '"_dp')
 map("v", "P", '"_dP')
 
 -- window
+map("n", "<C-v>", "<cmd>vsplit<cr><C-]><cr>", { desc = "Horizontal split" })
 map("n", "<leader>ws", "<cmd>split<cr>", { desc = "Horizontal split" })
 map("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Vertical split" })
 map("n", "<leader>wc", "<cmd>close<cr>", { desc = "Close" })
@@ -40,12 +41,13 @@ map("n", "<leader><tab>", "<cmd>b#<cr>", { desc = "Previously openend Buffer" })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch and ESC" })
 
 -- move over a closing element in insert mode
-map("i", "<C-l>", function()
+map("i", "<C-v>", function()
   return require("utils.functions").escapePair()
 end)
 
 -- save like your are used to
-map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+map({ "i", "v", "n", "s" }, "<C-w>", "<cmd>w<cr><esc>", { desc = "Save file" })
+map({ "i", "v", "n", "s" }, "<C-q>", "<cmd>wq<cr><esc>", { desc = "Quit and save file" })
 
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New file" })

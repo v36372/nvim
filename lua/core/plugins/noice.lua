@@ -44,7 +44,8 @@ return {
       {
         "rcarriga/nvim-notify",
         opts = {
-          top_down = true,
+          top_down = false,
+          timeout = 1000,
         },
       },
     },

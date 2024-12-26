@@ -27,12 +27,12 @@ return {
         vim.keymap.set("n", "<leader>tF", "<cmd>ToggleAutoformat<cr>", { desc = "Toggle format on save" })
       end,
       opts = {
-        format_on_save = function()
+        format_after_save = function()
           -- Disable with a global variable
           if vim.g.disable_autoformat then
             return
           end
-          return { async = false, timeout_ms = 500, lsp_fallback = false }
+          return { async = true, timeout_ms = 5000, lsp_fallback = false }
         end,
         -- log_level = vim.log.levels.TRACE,
         formatters_by_ft = {

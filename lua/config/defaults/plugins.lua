@@ -10,6 +10,9 @@ return {
       enable = false,
       disable_autostart = false,
     },
+    emoji = {
+      enable = false,
+    },
     lsp = {
       log = "off",
     },
@@ -52,6 +55,7 @@ return {
         -- "zipPlugin",
       },
     },
+    lualine = {},
     lf = {
       -- https://github.com/lmburns/lf.nvim
       enable = false,

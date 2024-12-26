@@ -1,0 +1,492 @@
+diff --git a/lazy-lock.json b/lazy-lock.json
+new file mode 100644
+index 0000000..12726ca
+--- /dev/null
++++ b/lazy-lock.json
+@@ -0,0 +1,72 @@
++{
++  "LuaSnip": { "branch": "master", "commit": "33b06d72d220aa56a7ce80a0dd6f06c70cd82b9d" },
++  "Navigator.nvim": { "branch": "master", "commit": "91d86506ac2a039504d5205d32a1d4bc7aa57072" },
++  "cmp-calc": { "branch": "main", "commit": "5947b412da67306c5b68698a02a846760059be2e" },
++  "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },
++  "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
++  "cmp-rg": { "branch": "master", "commit": "70a43543f61b6083ba9c3b7deb9ccee671410ac6" },
++  "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
++  "conform.nvim": { "branch": "master", "commit": "f4e8837878fc5712d053ba3091a73d27d96a09e2" },
++  "copilot-cmp": { "branch": "master", "commit": "15fc12af3d0109fa76b60b5cffa1373697e261d1" },
++  "copilot.lua": { "branch": "master", "commit": "d3783b9283a7c35940ed8d71549030d5f5f9f980" },
++  "dressing.nvim": { "branch": "master", "commit": "fc78a3ca96f4db9f8893bb7e2fd9823e0780451b" },
++  "dropbar.nvim": { "branch": "master", "commit": "321cbc7a6be672f15e3ec5ceaab7a90b4dec6122" },
++  "flash.nvim": { "branch": "main", "commit": "34c7be146a91fec3555c33fe89c7d643f6ef5cf1" },
++  "flatten.nvim": { "branch": "main", "commit": "e420e531d2ab24aebcf7b3c9fca28e6c5c34964d" },
++  "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
++  "fzf-lua": { "branch": "main", "commit": "7022b5b002bb7488e1be4470bad2342bcc8d4d99" },
++  "git-conflict.nvim": { "branch": "main", "commit": "4bbfdd92d547d2862a75b4e80afaf30e73f7bbb4" },
++  "gitsigns.nvim": { "branch": "main", "commit": "5f808b5e4fef30bd8aca1b803b4e555da07fc412" },
++  "inc-rename.nvim": { "branch": "main", "commit": "f4e13df6e2d0b3177a7305dbc1cc7f7ea44b94f1" },
++  "kustomize.nvim": { "branch": "main", "commit": "2f15f332a36d33fe7054045ced7e1122b2992d69" },
++  "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
++  "lazydev.nvim": { "branch": "main", "commit": "f59bd14a852ca43db38e3662395354cb2a9b13e0" },
++  "lspkind-nvim": { "branch": "master", "commit": "d79a1c3299ad0ef94e255d045bed9fa26025dab6" },
++  "lualine.nvim": { "branch": "master", "commit": "2a5bae925481f999263d6f5ed8361baef8df4f83" },
++  "markdown.nvim": { "branch": "main", "commit": "0022a579ac7355966be5ade77699b88c76b6a549" },
++  "mason-lspconfig.nvim": { "branch": "main", "commit": "8e46de9241d3997927af12196bd8faa0ed08c29a" },
++  "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
++  "mini.ai": { "branch": "main", "commit": "ebb04799794a7f94628153991e6334c3304961b8" },
++  "mini.align": { "branch": "main", "commit": "acf1ad6031e49553ed887a2a5e3603211346f1de" },
++  "mini.icons": { "branch": "main", "commit": "44c0160526f7ae17ca8e8eab9ab235d047fcf7a6" },
++  "mini.surround": { "branch": "main", "commit": "aa5e245829dd12d8ff0c96ef11da28681d6049aa" },
++  "mini.test": { "branch": "main", "commit": "86a64d5a4bf9d73ebf5875edaae0d878f64f5e48" },
++  "neo-tree.nvim": { "branch": "v3.x", "commit": "a77af2e764c5ed4038d27d1c463fa49cd4794e07" },
++  "neoconf.nvim": { "branch": "main", "commit": "04e1d86b45ad2005ead53a1014e11f0a9466c957" },
++  "neogit": { "branch": "master", "commit": "6691c4efcd8dad313e344c49057f05db7d91fd25" },
++  "nightfox.nvim": { "branch": "main", "commit": "7557f26defd093c4e9bc17f28b08403f706f5a44" },
++  "noice.nvim": { "branch": "main", "commit": "eaed6cc9c06aa2013b5255349e4f26a6b17ab70f" },
++  "nui.nvim": { "branch": "main", "commit": "53e907ffe5eedebdca1cd503b00aa8692068ca46" },
++  "nvim-autopairs": { "branch": "master", "commit": "b464658e9b880f463b9f7e6ccddd93fb0013f559" },
++  "nvim-cmp": { "branch": "main", "commit": "3403e2e9391ed0a28c3afddd8612701b647c8e26" },
++  "nvim-dap": { "branch": "master", "commit": "567da83810dd9da32f9414d941bc6848715fc102" },
++  "nvim-dap-go": { "branch": "main", "commit": "6aa88167ea1224bcef578e8c7160fe8afbb44848" },
++  "nvim-dap-python": { "branch": "master", "commit": "34282820bb713b9a5fdb120ae8dd85c2b3f49b51" },
++  "nvim-dap-ui": { "branch": "master", "commit": "ffa89839f97bad360e78428d5c740fdad9a0ff02" },
++  "nvim-dap-virtual-text": { "branch": "master", "commit": "76d80c3d171224315b61c006502a1e30c213a9ab" },
++  "nvim-highlight-colors": { "branch": "main", "commit": "e967e2ba13fd4ca731b41d0e5cc1ac2edcd6e25e" },
++  "nvim-lint": { "branch": "master", "commit": "6b46370d02cd001509a765591a3ffc481b538794" },
++  "nvim-lspconfig": { "branch": "master", "commit": "ae8a01bb40848490548e5d07b97ed972ed43c2f9" },
++  "nvim-luapad": { "branch": "master", "commit": "176686eb616a5ada5dfc748f2b5109194bbe8a71" },
++  "nvim-nio": { "branch": "master", "commit": "a428f309119086dc78dd4b19306d2d67be884eee" },
++  "nvim-notify": { "branch": "master", "commit": "fbef5d32be8466dd76544a257d3f3dce20082a07" },
++  "nvim-toggleterm.lua": { "branch": "main", "commit": "87b2d6a3cab8e2bd9a0255427074285f0365398d" },
++  "nvim-treesitter": { "branch": "master", "commit": "1d0a8b91d02511a7f4d7aa74b2db0e19d6e780be" },
++  "nvim-treesitter-endwise": { "branch": "master", "commit": "8b34305ffc28bd75a22f5a0a9928ee726a85c9a6" },
++  "nvim-treesitter-textobjects": { "branch": "master", "commit": "ad8f0a472148c3e0ae9851e26a722ee4e29b1595" },
++  "nvim-ts-autotag": { "branch": "main", "commit": "1cca23c9da708047922d3895a71032bc0449c52d" },
++  "nvim-ts-hint-textobject": { "branch": "master", "commit": "e87002968983ed23836dfad53bcf023e609db42d" },
++  "nvim-window-picker": { "branch": "main", "commit": "41cfaa428577c53552200a404ae9b3a0b5719706" },
++  "outline.nvim": { "branch": "main", "commit": "6c44527837ff7ac1cd054dc365a721e881020a2e" },
++  "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
++  "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
++  "snacks.nvim": { "branch": "main", "commit": "bb5754738a3126b5f18c53e9d23a9a1bf57391c3" },
++  "symbol-usage.nvim": { "branch": "main", "commit": "0f9b3da014b7e41559b643e7461fcabb2a7dc83a" },
++  "treesj": { "branch": "main", "commit": "94f6df623f2d15630b1b617abff39962024cb501" },
++  "ts-advanced-git-search.nvim": { "branch": "main", "commit": "69a41a3351d89e8be597fe5682265d8c99b8b12c" },
++  "typst.vim": { "branch": "main", "commit": "8ce752f1ba1277046429cb469c17ff2e1abc718f" },
++  "vim-fugitive": { "branch": "master", "commit": "fcb4db52e7f65b95705aa58f0f2df1312c1f2df2" },
++  "vim-helm": { "branch": "master", "commit": "ae1ebc160d2b9b90108477ab10df7a4fc501e358" },
++  "vimtex": { "branch": "master", "commit": "b8bb79b5fb27e9030ade92e75cd9375416f2c666" },
++  "which-key.nvim": { "branch": "main", "commit": "8ab96b38a2530eacba5be717f52e04601eb59326" }
++}
+diff --git a/lua/config/defaults/conform.lua b/lua/config/defaults/conform.lua
+index 3db91a7..a9224e4 100644
+--- a/lua/config/defaults/conform.lua
++++ b/lua/config/defaults/conform.lua
+@@ -27,12 +27,12 @@ return {
+         vim.keymap.set("n", "<leader>tF", "<cmd>ToggleAutoformat<cr>", { desc = "Toggle format on save" })
+       end,
+       opts = {
+-        format_on_save = function()
++        format_after_save = function()
+           -- Disable with a global variable
+           if vim.g.disable_autoformat then
+             return
+           end
+-          return { async = false, timeout_ms = 500, lsp_fallback = false }
++          return { async = true, timeout_ms = 5000, lsp_fallback = false }
+         end,
+         -- log_level = vim.log.levels.TRACE,
+         formatters_by_ft = {
+diff --git a/lua/config/defaults/mason.lua b/lua/config/defaults/mason.lua
+index dece90c..f823dcd 100644
+--- a/lua/config/defaults/mason.lua
++++ b/lua/config/defaults/mason.lua
+@@ -7,12 +7,10 @@ return {
+     "jsonls",
+     "gopls",
+     "helm_ls",
+-    "ltex",
+     "marksman",
+     "pyright",
+     "lua_ls",
+     "terraformls",
+-    "texlab",
+     "ts_ls",
+     "typst_lsp",
+     "yamlls",
+@@ -35,9 +33,6 @@ return {
+     "yamllint",
+     "ruff",
+     -- DAP
+-    "debugpy",
+-    "delve",
+-    "codelldb",
+     -- Go
+     "gofumpt",
+     "goimports",
+diff --git a/lua/config/defaults/plugins.lua b/lua/config/defaults/plugins.lua
+index 3a28eaf..c06a9b6 100644
+--- a/lua/config/defaults/plugins.lua
++++ b/lua/config/defaults/plugins.lua
+@@ -10,6 +10,9 @@ return {
+       enable = false,
+       disable_autostart = false,
+     },
++    emoji = {
++      enable = false,
++    },
+     lsp = {
+       log = "off",
+     },
+@@ -52,6 +55,7 @@ return {
+         -- "zipPlugin",
+       },
+     },
++    lualine = {},
+     lf = {
+       -- https://github.com/lmburns/lf.nvim
+       enable = false,
+diff --git a/lua/config/defaults/theme.lua b/lua/config/defaults/theme.lua
+index 18564f3..cc7d42a 100644
+--- a/lua/config/defaults/theme.lua
++++ b/lua/config/defaults/theme.lua
+@@ -1,18 +1,21 @@
+ return {
+   theme = {
+-    -- default, catppuccin, nightfox, tokyonight, tundra, kanagawa
+-    name = "catppuccin",
++    -- catppuccin, nightfox, tokyonight, tundra, kanagawa
++    name = "nightfox",
+     catppuccin = {
+       -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+       variant = "catppuccin-macchiato",
+     },
++    moonfly = {
++      variant = "moonfly",
++    },
+     kanagawa = {
+       -- kanagawa-dragon, kanagawa-lotus, kanagawa-wave
+       variant = "kanagawa-wave",
+     },
+     nightfox = {
+       -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
+-      variant = "carbonfox",
++      variant = "terafox",
+     },
+     tokyonight = {
+       -- night storm day moon
+diff --git a/lua/config/mappings.lua b/lua/config/mappings.lua
+index a17f35d..6f804e5 100644
+--- a/lua/config/mappings.lua
++++ b/lua/config/mappings.lua
+@@ -14,6 +14,7 @@ map("v", "p", '"_dp')
+ map("v", "P", '"_dP')
+ 
+ -- window
++map("n", "<C-v>", "<cmd>vsplit<cr><C-]><cr>", { desc = "Horizontal split" })
+ map("n", "<leader>ws", "<cmd>split<cr>", { desc = "Horizontal split" })
+ map("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Vertical split" })
+ map("n", "<leader>wc", "<cmd>close<cr>", { desc = "Close" })
+@@ -40,12 +41,13 @@ map("n", "<leader><tab>", "<cmd>b#<cr>", { desc = "Previously openend Buffer" })
+ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch and ESC" })
+ 
+ -- move over a closing element in insert mode
+-map("i", "<C-l>", function()
++map("i", "<C-v>", function()
+   return require("utils.functions").escapePair()
+ end)
+ 
+ -- save like your are used to
+-map({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
++map({ "i", "v", "n", "s" }, "<C-w>", "<cmd>w<cr><esc>", { desc = "Save file" })
++map({ "i", "v", "n", "s" }, "<C-q>", "<cmd>wq<cr><esc>", { desc = "Quit and save file" })
+ 
+ -- new file
+ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New file" })
+diff --git a/lua/core/plugins/cmp.lua b/lua/core/plugins/cmp.lua
+index 6fee0b8..00db24c 100644
+--- a/lua/core/plugins/cmp.lua
++++ b/lua/core/plugins/cmp.lua
+@@ -1,7 +1,7 @@
+ local user_config = vim.g.config.plugins.cmp or {}
+ 
+ local default_config = {
+-  enabled = false,
++  enabled = true,
+ }
+ 
+ local config = vim.tbl_deep_extend("force", default_config, user_config)
+@@ -30,10 +30,6 @@ return {
+       { name = "rg", keyword_length = 3, priority = 400 },
+     }
+ 
+-    if vim.g.config.plugins.emoji.enable then
+-      table.insert(sources, { name = "emoji" })
+-    end
+-
+     local format = {
+       mode = "symbol",
+       max_width = 50,
+@@ -74,11 +70,6 @@ return {
+       table.insert(format.symbol_map, { Copilot = icons.apps.Copilot })
+     end
+ 
+-    if vim.g.config.plugins.supermaven.enabled then
+-      table.insert(sources, { name = "supermaven" })
+-      format.symbol_map.Supermaven = icons.apps.Supermaven
+-    end
+-
+     local has_words_before = function()
+       if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" then
+         return false
+diff --git a/lua/core/plugins/copilot.lua b/lua/core/plugins/copilot.lua
+index 0230d2c..36cd60c 100644
+--- a/lua/core/plugins/copilot.lua
++++ b/lua/core/plugins/copilot.lua
+@@ -2,7 +2,7 @@ return {
+   "zbirenbaum/copilot.lua",
+   build = ":Copilot auth",
+   event = "InsertEnter",
+-  enabled = vim.g.config.plugins.copilot.enable,
++  enabled = true,
+   dependencies = {
+     {
+       "zbirenbaum/copilot-cmp",
+@@ -34,7 +34,18 @@ return {
+     local utils = require("utils.functions")
+     utils.map("n", "<leader>mc", "<cmd>Copilot enable<cr>", { desc = "Enable Copilot" })
+     require("copilot").setup({
+-      suggestion = { enabled = false },
++      suggestion = {
++        enabled = true,
++        auto_trigger = true,
++        debounce = 75,
++        keymap = {
++          accept = "<C-l>",
++          accept_word = false,
++          accept_line = false,
++          next = "<C-j>",
++          prev = "<C-k>",
++        },
++      },
+       panel = { enabled = false },
+     })
+     if vim.g.config.plugins.copilot.disable_autostart then
+diff --git a/lua/core/plugins/emoji.lua b/lua/core/plugins/emoji.lua
+deleted file mode 100644
+index 99b5777..0000000
+--- a/lua/core/plugins/emoji.lua
++++ /dev/null
+@@ -1,29 +0,0 @@
+-local user_config = vim.g.config.plugins.emoji or {}
+-
+-local default_config = {
+-  enabled = false,
+-  opts = {},
+-}
+-local config = vim.tbl_deep_extend("force", default_config, user_config)
+-
+-return {
+-  {
+-    "allaman/emoji.nvim",
+-    ft = "markdown",
+-    dependencies = "hrsh7th/nvim-cmp",
+-    opts = config.opts,
+-    dev = true,
+-  },
+-
+-  {
+-    "saghen/blink.cmp",
+-    optional = true,
+-    dependencies = { "allaman/emoji.nvim", "saghen/blink.compat" },
+-    opts = {
+-      sources = {
+-        compat = { "emoji" },
+-        providers = { emoji = { kind = "text" } },
+-      },
+-    },
+-  },
+-}
+diff --git a/lua/core/plugins/fzf-lua.lua b/lua/core/plugins/fzf-lua.lua
+index 2591f91..ff95607 100644
+--- a/lua/core/plugins/fzf-lua.lua
++++ b/lua/core/plugins/fzf-lua.lua
+@@ -18,7 +18,8 @@ local default_config = {
+   },
+   keys = {
+     { "<leader>ss", "<cmd>FzfLua live_grep<cr>", desc = "Strings" },
+-    { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Open" },
++    { "<leader>sw", "<cmd>FzfLua grep_cword<cr>", desc = "Word" },
++    { "<C-p>", "<cmd>FzfLua files<cr>", desc = "Open" },
+     { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
+     { "<leader>bb", "<cmd>FzfLua buffers<cr>", desc = "List" },
+     -- { "<leader>r", "<cmd>FzfLua resume<cr>", desc = "Resume search" },
+@@ -48,7 +49,7 @@ return {
+   },
+   -- catppuccin integration
+   {
+-    "catppuccin",
++    "moonfly",
+     optional = true,
+     opts = {
+       integrations = { fzf = true },
+diff --git a/lua/core/plugins/lsp/keys.lua b/lua/core/plugins/lsp/keys.lua
+index d8e2967..3082a36 100644
+--- a/lua/core/plugins/lsp/keys.lua
++++ b/lua/core/plugins/lsp/keys.lua
+@@ -16,7 +16,7 @@ else
+   lsp_key_mapping["document_diagnostics"] = "<cmd>FzfLua diagnostics_document<cr>"
+   lsp_key_mapping["lsp_implementations"] = "<cmd>FzfLua lsp_implementations<cr>"
+   lsp_key_mapping["lsp_document_symbols"] = "<cmd>FzfLua lsp_document_symbols<cr>"
+-  lsp_key_mapping["lsp_references"] = "<cmd>Fzflua lsp_references<cr>"
++  lsp_key_mapping["lsp_references"] = "<cmd>FzfLua lsp_references<cr>"
+   lsp_key_mapping["lsp_definitions"] = "<cmd>FzfLua lsp_definitions<cr>"
+   lsp_key_mapping["lsp_type_definitions"] = "<cmd>FzfLua lsp_typedefs<cr>"
+   lsp_key_mapping["workspace_diagnostics"] = "<cmd>FzfLua diagnostics_workspace<cr>"
+@@ -49,16 +49,12 @@ M._keys = {
+   -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
+   {
+     "<leader>ln",
+-    function()
+-      vim.diagnostic.jump({ count = 1 })
+-    end,
++    vim.diagnostic.goto_next,
+     desc = "Next Diagnostic",
+   },
+   {
+     "<leader>lp",
+-    function()
+-      vim.diagnostic.jump({ count = -1 })
+-    end,
++    vim.diagnostic.goto_next,
+     desc = "Prev Diagnostic",
+   },
+   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
+diff --git a/lua/core/plugins/neo-tree.lua b/lua/core/plugins/neo-tree.lua
+index febffba..a308b8c 100644
+--- a/lua/core/plugins/neo-tree.lua
++++ b/lua/core/plugins/neo-tree.lua
+@@ -5,6 +5,31 @@ local M = {
+   dependencies = {
+     "nvim-lua/plenary.nvim",
+     { "MunifTanjim/nui.nvim", lazy = true },
++    {
++      "s1n7ax/nvim-window-picker",
++      lazy = true,
++      opts = {
++        filter_rules = {
++          -- filter using buffer options
++          bo = {
++            -- if the file type is one of following, the window will be ignored
++            filetype = {
++              "neo-tree",
++              "neo-tree-popup",
++              "notify",
++              "packer",
++              "qf",
++              "diff",
++              "fugitive",
++              "fugitiveblame",
++            },
++
++            -- if the buffer type is one of following, the window will be ignored
++            buftype = { "nofile", "help", "terminal" },
++          },
++        },
++      },
++    },
+   },
+   keys = {
+     { "<leader>fp", "<cmd>Neotree reveal toggle<cr>", desc = "Toggle Filetree" },
+@@ -57,11 +82,15 @@ local M = {
+             "toggle_node",
+             nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+           },
+-          ["<2-LeftMouse>"] = "open",
+-          ["<cr>"] = "open",
+-          ["s"] = "open_split",
+-          ["v"] = "open_vsplit",
++          ["<2-LeftMouse>"] = "open_with_window_picker",
+           ["t"] = "open_tabnew",
++
++          --["<cr>"] = "open_with_window_picker",
++          ["<C-c>"] = "open_split",
++          --["S"] = "split_with_window_picker",
++          ["<C-v>"] = "open_vsplit",
++          --["s"] = "vsplit_with_window_picker",
++
+           --["P"] = "toggle_preview",
+           ["C"] = "close_node",
+           ["z"] = "close_all_nodes",
+diff --git a/lua/core/plugins/noice.lua b/lua/core/plugins/noice.lua
+index ce3e6c1..f180178 100644
+--- a/lua/core/plugins/noice.lua
++++ b/lua/core/plugins/noice.lua
+@@ -44,7 +44,8 @@ return {
+       {
+         "rcarriga/nvim-notify",
+         opts = {
+-          top_down = true,
++          top_down = false,
++          timeout = 1000,
+         },
+       },
+     },
+diff --git a/lua/core/plugins/snacks.lua b/lua/core/plugins/snacks.lua
+index abc4a8a..591fdbf 100644
+--- a/lua/core/plugins/snacks.lua
++++ b/lua/core/plugins/snacks.lua
+@@ -38,7 +38,18 @@ local default_config = {
+       timeout = 2000,
+     },
+     quickfile = { enabled = true },
+-    scroll = { enabled = true },
++    scroll = {
++      enabled = true,
++      animate = {
++        duration = { step = 15, total = 100 },
++        easing = "linear",
++      },
++      spamming = 10, -- threshold for spamming detection
++      -- what buffers to animate
++      filter = function(buf)
++        return vim.g.snacks_scroll ~= false and vim.b[buf].snacks_scroll ~= false and vim.bo[buf].buftype ~= "terminal"
++      end,
++    },
+     statuscolumn = { enabled = true },
+     words = { enabled = true },
+     zen = { enabled = true },
+@@ -60,7 +71,7 @@ local default_config = {
+     { "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
+     { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
+     { "<leader>fR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
+-    { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
++    -- { "*",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
+     { "#",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
+     -- stylua: ignore end
+   },
+diff --git a/lua/core/plugins/theme.lua b/lua/core/plugins/theme.lua
+index 593d81f..5652b24 100644
+--- a/lua/core/plugins/theme.lua
++++ b/lua/core/plugins/theme.lua
+@@ -8,6 +8,15 @@ local themes = {
+       require("core.plugins.themes.nightfox")
+     end,
+   },
++  moonfly = {
++    "bluz71/vim-moonfly-colors",
++    name = "moonfly",
++    lazy = false,
++    priority = 1000,
++    config = function()
++      require("core.plugins.themes.moonfly")
++    end,
++  },
+   tundra = {
+     "sam4llis/nvim-tundra",
+     priority = 1000,
+diff --git a/lua/core/plugins/themes/moonfly.lua b/lua/core/plugins/themes/moonfly.lua
+new file mode 100644
+index 0000000..04d07af
+--- /dev/null
++++ b/lua/core/plugins/themes/moonfly.lua
+@@ -0,0 +1 @@
++vim.cmd("colorscheme " .. vim.g.config.theme.moonfly.variant)

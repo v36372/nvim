@@ -1,7 +1,7 @@
 local user_config = vim.g.config.plugins.cmp or {}
 
 local default_config = {
-  enabled = false,
+  enabled = true,
 }
 
 local config = vim.tbl_deep_extend("force", default_config, user_config)
@@ -29,10 +29,6 @@ return {
       { name = "path", priority = 300 },
       { name = "rg", keyword_length = 3, priority = 400 },
     }
-
-    if vim.g.config.plugins.emoji.enable then
-      table.insert(sources, { name = "emoji" })
-    end
 
     local format = {
       mode = "symbol",
@@ -72,11 +68,6 @@ return {
     if vim.g.config.plugins.copilot.enable then
       table.insert(sources, { name = "copilot", group_index = 2 })
       table.insert(format.symbol_map, { Copilot = icons.apps.Copilot })
-    end
-
-    if vim.g.config.plugins.supermaven.enabled then
-      table.insert(sources, { name = "supermaven" })
-      format.symbol_map.Supermaven = icons.apps.Supermaven
     end
 
     local has_words_before = function()

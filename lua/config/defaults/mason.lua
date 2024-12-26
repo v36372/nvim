@@ -7,12 +7,10 @@ return {
     "jsonls",
     "gopls",
     "helm_ls",
-    "ltex",
     "marksman",
     "pyright",
     "lua_ls",
     "terraformls",
-    "texlab",
     "ts_ls",
     "typst_lsp",
     "yamlls",
@@ -35,9 +33,6 @@ return {
     "yamllint",
     "ruff",
     -- DAP
-    "debugpy",
-    "delve",
-    "codelldb",
     -- Go
     "gofumpt",
     "goimports",
