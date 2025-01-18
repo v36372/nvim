@@ -49,11 +49,8 @@ for _, lsp in ipairs(conf.lsp_servers) do
     flags = { debounce_text_changes = 150 },
     settings = {
       json = lsp_settings.json,
-      Lua = lsp_settings.lua,
-      ltex = lsp_settings.ltex,
       gopls = lsp_settings.gopls,
       redhat = { telemetry = { enabled = false } },
-      texlab = lsp_settings.tex,
       yaml = lsp_settings.yaml,
     },
   })

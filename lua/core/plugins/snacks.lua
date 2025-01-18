@@ -7,7 +7,8 @@ local default_config = {
   opts = {
     bigfile = { enabled = true },
     dashboard = {
-      enabled = true,
+      enabled = false,
+      width = 20,
       preset = {
         ---@type snacks.dashboard.Item[]
         -- stylua: ignore start
@@ -34,7 +35,7 @@ local default_config = {
     dim = { enabled = true },
     indent = { enabled = true }, -- animation is on by default
     notifier = {
-      enabled = true,
+      enabled = false,
       timeout = 2000,
     },
     quickfile = { enabled = true },
