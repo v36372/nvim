@@ -88,6 +88,8 @@ map("n", "<leader>zj", "]s", { desc = "Next error" })
 map("n", "<leader>zk", "[s", { desc = "Previous error" })
 map("n", "<leader>za", "zg", { desc = "Add word" })
 
+map("n", "<C-c>", "za", { desc = "Toggle fold" })
+
 -- Reload snippets folder
 -- TODO make path system independent
 map("n", "<leader>ms", "<cmd>source ~/.config/nvim/snippets/*<cr>", { desc = "Reload snippets" })

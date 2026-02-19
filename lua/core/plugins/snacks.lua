@@ -6,9 +6,11 @@ local default_config = {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
+    git = { enabled = true },
+    scope = { enabled = true },
     dashboard = {
-      enabled = false,
-      width = 20,
+      enabled = true,
+      width = 100,
       preset = {
         ---@type snacks.dashboard.Item[]
         -- stylua: ignore start
@@ -53,7 +55,7 @@ local default_config = {
     },
     statuscolumn = { enabled = true },
     words = { enabled = true },
-    zen = { enabled = true },
+    zen = { enabled = false },
     styles = {
       notification = {
         wo = { wrap = true }, -- Wrap notifications
@@ -62,8 +64,6 @@ local default_config = {
   },
   keys = {
     -- stylua: ignore start
-    { "<leader>mZ",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
-    { "<leader>mz",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     { "<leader>nd", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     { "<leader>gL", function() Snacks.lazygit() end, desc = "Lazygit" },

@@ -12,7 +12,6 @@ return {
     "lua_ls",
     "terraformls",
     "ts_ls",
-    "typst_lsp",
     "yamlls",
   },
 
@@ -23,7 +22,6 @@ return {
     "stylua",
     "shfmt",
     "taplo",
-    "typstfmt",
     -- Linter
     "hadolint",
     "eslint_d",

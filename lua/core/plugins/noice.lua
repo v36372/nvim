@@ -41,13 +41,13 @@ return {
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
-      {
-        "rcarriga/nvim-notify",
-        opts = {
-          top_down = false,
-          timeout = 1000,
-        },
-      },
+      -- {
+      --   "rcarriga/nvim-notify",
+      --   opts = {
+      --     top_down = false,
+      --     timeout = 1000,
+      --   },
+      -- },
     },
     keys = config.keys,
     opts = config.opts,
